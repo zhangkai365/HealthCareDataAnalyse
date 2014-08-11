@@ -1,0 +1,124 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="abca4a95fa9b4f6fae8270a5bfdc1035" Name="Diagram1" ZoomLevel="78">
+        <EntityTypeShape EntityType="medbaseModel.dtproperties" Width="1.5" PointX="10.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="medbaseModel.hactdepdiag" Width="1.5" PointX="10.75" PointY="4.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="medbaseModel.hactdiag" Width="1.5" PointX="10.75" PointY="9.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="medbaseModel.hactmemb" Width="1.5" PointX="0.75" PointY="11.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="medbaseModel.hactrep" Width="1.5" PointX="2.75" PointY="11.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="medbaseModel.hacttest" Width="1.5" PointX="7.75" PointY="11.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="medbaseModel.haudit" Width="1.5" PointX="12.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="medbaseModel.hbasegrp" Width="1.5" PointX="4.75" PointY="12.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="medbaseModel.hbasegrpdept" Width="1.5" PointX="12.75" PointY="5.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="medbaseModel.hbasegrpedit" Width="1.5" PointX="12.75" PointY="8.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="medbaseModel.hbasememb" Width="1.5" PointX="12.75" PointY="11.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="medbaseModel.hbasemembcommon" Width="1.5" PointX="9.75" PointY="13.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="medbaseModel.hbasemembdiag" Width="1.5" PointX="14.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="medbaseModel.hbasemembrep" Width="1.5" PointX="14.75" PointY="6.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="medbaseModel.hbasemembunion" Width="1.5" PointX="14.75" PointY="11.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="medbaseModel.hcheckmemb" Width="1.5" PointX="0.75" PointY="15.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="medbaseModel.hdatadep" Width="1.5" PointX="6.75" PointY="15.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="medbaseModel.hdatadepdiag" Width="1.5" PointX="8" PointY="2.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="medbaseModel.hdatadeptest" Width="1.5" PointX="3" PointY="1.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="medbaseModel.hdatadepunion" Width="1.5" PointX="14.75" PointY="15.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="medbaseModel.hdatadiag" Width="1.5" PointX="16.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="medbaseModel.hdataimg" Width="1.5" PointX="16.75" PointY="9.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="medbaseModel.hdatarep" Width="1.5" PointX="16.75" PointY="14.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="medbaseModel.hError" Width="1.5" PointX="18.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="medbaseModel.hknowdiag" Width="1.5" PointX="18.75" PointY="3.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="medbaseModel.hknowtest" Width="1.5" PointX="18.75" PointY="7.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="medbaseModel.hknowunion" Width="1.5" PointX="8.75" PointY="18.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="medbaseModel.hlibasm" Width="1.5" PointX="18.75" PointY="11.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="medbaseModel.hlibdiag" Width="1.5" PointX="5.75" PointY="1.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="medbaseModel.hlibpis" Width="1.5" PointX="18.75" PointY="15.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="medbaseModel.hlibpisform" Width="1.5" PointX="20.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="medbaseModel.hlibrepform" Width="1.5" PointX="20.75" PointY="4.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="medbaseModel.hlibtest" Width="1.5" PointX="0.75" PointY="1.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="medbaseModel.hlibtestattr" Width="1.5" PointX="20.75" PointY="9.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="medbaseModel.hlibtestdict" Width="1.5" PointX="20.75" PointY="13.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="medbaseModel.hlibtestops" Width="1.5" PointX="16.75" PointY="20.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="medbaseModel.hlibuniontest" Width="1.5" PointX="3" PointY="7.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="medbaseModel.hlogdata" Width="1.5" PointX="20.75" PointY="17.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="medbaseModel.htask" Width="1.5" PointX="18.75" PointY="21.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="medbaseModel.htaskacc" Width="1.5" PointX="20.75" PointY="21.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="medbaseModel.htaskaccDetail" Width="1.5" PointX="22.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="medbaseModel.htaskasm" Width="1.5" PointX="2.75" PointY="22.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="medbaseModel.htaskasmunion" Width="1.5" PointX="22.75" PointY="5.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="medbaseModel.htaskdep" Width="1.5" PointX="8.75" PointY="22.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="medbaseModel.htaskdepdiag" Width="1.5" PointX="22.75" PointY="9.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="medbaseModel.htaskDepImage" Width="1.5" PointX="22.75" PointY="18.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="medbaseModel.htaskdepunion" Width="1.5" PointX="4.75" PointY="23.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="medbaseModel.htaskdiag" Width="1.5" PointX="22.75" PointY="23.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="medbaseModel.htaskgrp" Width="1.5" PointX="24.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="medbaseModel.htaskimg" Width="1.5" PointX="24.75" PointY="4.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="medbaseModel.htaskmemb" Width="1.5" PointX="24.75" PointY="9.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="medbaseModel.htaskrep" Width="1.5" PointX="14.75" PointY="24.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="medbaseModel.htreedict" Width="1.5" PointX="24.75" PointY="22.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="medbaseModel.htreetest" Width="1.5" PointX="26.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="medbaseModel.libicd10" Width="1.5" PointX="0.75" PointY="26.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="medbaseModel.libsnomed" Width="1.5" PointX="26.75" PointY="5.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="medbaseModel.ycheckmemb" Width="1.5" PointX="26.75" PointY="12.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="medbaseModel.ytask" Width="1.5" PointX="26.75" PointY="22.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="medbaseModel.ytaskacc" Width="1.5" PointX="10.75" PointY="27.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="medbaseModel.ytaskaccDetail" Width="1.5" PointX="28.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="medbaseModel.ytaskasm" Width="1.5" PointX="28.75" PointY="5.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="medbaseModel.ytaskasmunion" Width="1.5" PointX="28.75" PointY="9.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="medbaseModel.ytaskdep" Width="1.5" PointX="28.75" PointY="13.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="medbaseModel.ytaskdepdiag" Width="1.5" PointX="28.75" PointY="21.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="medbaseModel.ytaskdepunion" Width="1.5" PointX="30.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="medbaseModel.ytaskdiag" Width="1.5" PointX="6.75" PointY="30.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="medbaseModel.ytaskgrp" Width="1.5" PointX="30.75" PointY="9.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="medbaseModel.ytaskimg" Width="1.5" PointX="12.75" PointY="30.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="medbaseModel.ytaskmemb" Width="1.5" PointX="30.75" PointY="13.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="medbaseModel.ytaskrep" Width="1.5" PointX="14.75" PointY="30.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="medbaseModel.hbasemembedit" Width="1.5" PointX="16.75" PointY="30.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="medbaseModel.hlibdept" Width="1.5" PointX="18.75" PointY="30.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="medbaseModel.hlibuniondiag" Width="1.5" PointX="30.75" PointY="26.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="medbaseModel.hstat_result_data" Width="1.5" PointX="24.75" PointY="31.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="medbaseModel.hstat_result_data_namelist" Width="1.5" PointX="26.75" PointY="31.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="medbaseModel.hstat_sessions" Width="1.5" PointX="28.75" PointY="31.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="medbaseModel.hstatcharts" Width="1.5" PointX="30.75" PointY="31.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="medbaseModel.hstatconds" Width="1.5" PointX="32.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="medbaseModel.hstatdata_conds" Width="1.5" PointX="0.75" PointY="32.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="medbaseModel.hstatdata_history_defines" Width="1.5" PointX="2.75" PointY="32.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="medbaseModel.hstatdata_methods" Width="1.5" PointX="32.75" PointY="4.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="medbaseModel.hstatdata_views" Width="1.5" PointX="32.75" PointY="7.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="medbaseModel.hstatdatasets" Width="1.5" PointX="32.75" PointY="10.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="medbaseModel.hstatdiags" Width="1.5" PointX="32.75" PointY="14.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="medbaseModel.hstatmainrec" Width="1.5" PointX="32.75" PointY="18.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="medbaseModel.hstatmethods" Width="1.5" PointX="20.75" PointY="32.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="medbaseModel.hstatreports" Width="1.5" PointX="32.75" PointY="23.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="medbaseModel.hstatviews" Width="1.5" PointX="32.75" PointY="26.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="medbaseModel.htaskasmtest" Width="1.5" PointX="32.75" PointY="29.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="medbaseModel.htaskDeptest" Width="1.5" PointX="32.75" PointY="33.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="medbaseModel.htaskdiagpost" Width="1.5" PointX="34.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="medbaseModel.hvirtualdiags" Width="1.5" PointX="34.75" PointY="8.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="medbaseModel.libicd10zj" Width="1.5" PointX="34.75" PointY="12.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="medbaseModel.libsnomedother" Width="1.5" PointX="34.75" PointY="16.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="medbaseModel.pbcatcol" Width="1.5" PointX="16.75" PointY="34.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="medbaseModel.pbcatedt" Width="1.5" PointX="34.75" PointY="23.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="medbaseModel.pbcatfmt" Width="1.5" PointX="26.75" PointY="34.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="medbaseModel.pbcattbl" Width="1.5" PointX="34.75" PointY="27.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="medbaseModel.pbcatvld" Width="1.5" PointX="34.75" PointY="34.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="medbaseModel.pisform" Width="1.5" PointX="2.75" PointY="35.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="medbaseModel.tj2" Width="1.5" PointX="28.75" PointY="35.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="medbaseModel.tj2_backup" Width="1.5" PointX="36.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="medbaseModel.tj2_backup2" Width="1.5" PointX="36.75" PointY="4.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="medbaseModel.tj2_backup3" Width="1.5" PointX="36.75" PointY="8.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="medbaseModel.tj2_deleted" Width="1.5" PointX="8.75" PointY="36.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="medbaseModel.x1" Width="1.5" PointX="10.75" PointY="36.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="medbaseModel.x11" Width="1.5" PointX="36.75" PointY="12.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="medbaseModel.x2" Width="1.5" PointX="12.75" PointY="36.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="medbaseModel.x22" Width="1.5" PointX="36.75" PointY="16.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="medbaseModel.ytaskDeptest" Width="1.5" PointX="18.75" PointY="36.75" IsExpanded="true" />
+        <AssociationConnector Association="medbaseModel.FK_hdatadepdiag_hlibdiag" ManuallyRouted="false" />
+        <AssociationConnector Association="medbaseModel.FK_hdatadeptest_hlibtest" ManuallyRouted="false" />
+        <AssociationConnector Association="medbaseModel.FK_hlibuniontest_hlibtest" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>
