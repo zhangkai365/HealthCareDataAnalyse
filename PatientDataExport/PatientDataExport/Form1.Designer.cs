@@ -51,7 +51,7 @@
             // 
             // btn_beginProgress
             // 
-            this.btn_beginProgress.Location = new System.Drawing.Point(132, 259);
+            this.btn_beginProgress.Location = new System.Drawing.Point(525, 274);
             this.btn_beginProgress.Name = "btn_beginProgress";
             this.btn_beginProgress.Size = new System.Drawing.Size(144, 32);
             this.btn_beginProgress.TabIndex = 2;
@@ -66,14 +66,14 @@
             this.groupBox1.Controls.Add(this.txtbox_FilePath);
             this.groupBox1.Location = new System.Drawing.Point(12, 12);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(445, 134);
+            this.groupBox1.Size = new System.Drawing.Size(802, 134);
             this.groupBox1.TabIndex = 11;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "文件保存路径";
             // 
             // btn_selectSavePath
             // 
-            this.btn_selectSavePath.Location = new System.Drawing.Point(120, 81);
+            this.btn_selectSavePath.Location = new System.Drawing.Point(298, 74);
             this.btn_selectSavePath.Name = "btn_selectSavePath";
             this.btn_selectSavePath.Size = new System.Drawing.Size(144, 31);
             this.btn_selectSavePath.TabIndex = 12;
@@ -94,9 +94,10 @@
             // 
             this.txtbox_FilePath.Location = new System.Drawing.Point(11, 35);
             this.txtbox_FilePath.Name = "txtbox_FilePath";
-            this.txtbox_FilePath.Size = new System.Drawing.Size(419, 21);
+            this.txtbox_FilePath.Size = new System.Drawing.Size(772, 21);
             this.txtbox_FilePath.TabIndex = 10;
-            this.txtbox_FilePath.Text = "C:\\Users\\Win7x64_20140606\\Documents\\统计\\2014副市级.xls";
+            this.txtbox_FilePath.Text = "C:\\Users\\Win7x64_20140606\\Desktop\\2014年查体工作总结（修改201408080753）\\2014统计结论\\正局级0357.xl" +
+    "s";
             // 
             // groupBox2
             // 
@@ -105,7 +106,7 @@
             this.groupBox2.Controls.Add(this.totalNum);
             this.groupBox2.Controls.Add(this.progressNum);
             this.groupBox2.Controls.Add(this.label2);
-            this.groupBox2.Location = new System.Drawing.Point(12, 162);
+            this.groupBox2.Location = new System.Drawing.Point(369, 183);
             this.groupBox2.Name = "groupBox2";
             this.groupBox2.Size = new System.Drawing.Size(445, 57);
             this.groupBox2.TabIndex = 12;
@@ -163,9 +164,9 @@
             this.groupBox3.Controls.Add(this.lab_endDate);
             this.groupBox3.Controls.Add(this.label5);
             this.groupBox3.Controls.Add(this.label4);
-            this.groupBox3.Location = new System.Drawing.Point(501, 12);
+            this.groupBox3.Location = new System.Drawing.Point(12, 172);
             this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Size = new System.Drawing.Size(329, 134);
+            this.groupBox3.Size = new System.Drawing.Size(294, 134);
             this.groupBox3.TabIndex = 13;
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "处理数据时间范围";
@@ -210,7 +211,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(842, 360);
+            this.ClientSize = new System.Drawing.Size(842, 322);
             this.Controls.Add(this.groupBox3);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox1);

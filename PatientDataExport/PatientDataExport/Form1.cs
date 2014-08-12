@@ -38,8 +38,13 @@ namespace PatientDataExport
             String FilePath = txtbox_FilePath.Text;
             Excel.Application myExcel = new Excel.Application();
             myExcel.Visible = false;
+            //存储统计结果
             Excel.Workbook myWorkbook = myExcel.Workbooks.Add(true);
             Excel.Worksheet myWorkSheet = myWorkbook.Worksheets[1];
+
+            //存储主要的疾病的ICD诊断号码的Excel
+            Excel.Workbook ICDWorkbook = myExcel.Workbooks.Add(true);
+            Excel.Worksheet ICDWorksheet = ICDWorkbook.Worksheets[1];
 
             //统计不同年龄段的人数
             Dictionary<string, int> Dic_NumAge = new Dictionary<string, int>();
@@ -50,6 +55,8 @@ namespace PatientDataExport
 
             //疾病统计
             Dictionary<string, int> Dic_Disease = new Dictionary<string, int>();
+            //分性别统计
+            Dictionary<string, int> Dic_DiseaseSex = new Dictionary<string, int>();
             //分年龄统计 疾病统计
             Dictionary<string,int> Dic_DiseaseAge = new Dictionary<string,int>();
             //分年龄性别统计
@@ -62,7 +69,7 @@ namespace PatientDataExport
             Dictionary<string,int> Dic_DiseaseEachPersonNotICDNum = new Dictionary<string,int>();
 
             //进行处理的人数
-            int peoplecount = 0;           
+            int peoplecount = 0;
 
             medbaseEntities myMedBaseEntities = new medbaseEntities();
             //查询所有的待查询时间段内检查的患者
@@ -74,8 +81,9 @@ namespace PatientDataExport
             //副局级  s1.a0704 == "03"
             //高级知识分子  (s1.a0704 == "04" || s1.a0704 == "05" || s1.a0704 == "14")
             //离休  s1.a6405 == "02"
+            //离休 解决与上面重复问题 (s1.a0704 != "01" && s1.a0704 != "02" && s1.a0704 != "03" && s1.a0704 != "04" && s1.a0704 != "05" && s1.a0704 != "14" && s1.a6405 == "02")
             var ExportResult = from s1 in myMedBaseEntities.hcheckmemb
-                               where s1.checkdate > startDate && s1.checkdate < endDate && (s1.a0704 == "01" || s1.a0704 == "02" || s1.a0704 == "03" || s1.a0704 == "04" || s1.a0704 == "05" || s1.a0704 == "14" || s1.a6405 == "02")
+                               where s1.checkdate > startDate && s1.checkdate < endDate && (s1.a0704 != "01" && s1.a0704 != "02" && s1.a0704 != "03" && s1.a0704 != "04" && s1.a0704 != "05" && s1.a0704 != "14" && s1.a6405 == "02")
                                select s1;
             //总数
             totalNum.Text = ExportResult.Count().ToString();
@@ -93,6 +101,8 @@ namespace PatientDataExport
                 
                 //所有的年龄分布范围
                 string eachPersonAgeRange = "";
+                //所有的性别分布范围
+                string eachPersonSex = "";
                 //所有的年龄性别分布范围
                 string eachPersonAgeSexRange = "";
                 //存储性别
@@ -189,7 +199,11 @@ namespace PatientDataExport
                                 //诊断有确定ICD值，相应的疾病ICD值加1
                                 if (eachDisease.diagcode != null)
                                 {
+                                    //区分患者的年龄
                                     string ageSep = AgeSeprate(checkpatient.age.ToString()) + "，" + eachDisease.diagcode.ToString();
+                                    //区分患者的性别
+                                    string SexSep = Sex(checkpatient.a0107);
+                                    //区分患者的年龄和性别
                                     string ageSexSep = Sex(checkpatient.a0107) + "，" + ageSep;
                                     //不分年龄的
                                     if (Dic_Disease.ContainsKey(eachDisease.diagcode.ToString()))
@@ -218,6 +232,17 @@ namespace PatientDataExport
                                         Dic_DiseaseAge.Add(ageSep, 1);
                                     }
 
+                                    //分性别
+                                    if (Dic_DiseaseSex.ContainsKey(SexSep))
+                                    {
+                                        //已经有此性别分类病种
+                                        Dic_DiseaseSex[SexSep]++;
+                                    }
+                                    else
+                                    {
+                                        //第一次统计此性别疾病
+                                        Dic_DiseaseSex.Add(SexSep, 1);
+                                    }
                                     //分年龄和性别的
                                     if (Dic_DiseaseAgeSex.ContainsKey(ageSexSep))
                                     {
@@ -317,26 +342,27 @@ namespace PatientDataExport
 
                 //各个ICD诊断的数量
                 int i = 0;
-                myWorkSheet.Cells[6, 1] = "ICD诊断名称";
-                myWorkSheet.Cells[6, 2] = "ICD诊断编码";
-                myWorkSheet.Cells[6, 3] = "此ICD诊断发病数量";
+                myWorkSheet.Cells[6, 1] = "男，ICD诊断名称";
+                myWorkSheet.Cells[6, 2] = "男，ICD诊断编码";
+                myWorkSheet.Cells[6, 3] = "男，此ICD诊断发病数量";
 
 
-                //筛选前20位的诊断
+                //筛选男性前20位的诊断
                 try
                 {
-                    var top20all = (from temptop20all in Dic_Disease
+                    var top20male = (from temptop20all in Dic_DiseaseSex
+                                    where temptop20all.Key.Contains("男，")
                                     orderby temptop20all.Value
                                     descending
-                                    select temptop20all).Take(20);
-                    if (top20all == null)
+                                    select temptop20all).Take(50);
+                    if (top20male == null)
                     {
                         myWorkSheet.Cells[7, 2] = "空白";
                         myWorkSheet.Cells[7, 3] = "空白";
                     }
                     else
                     {
-                        foreach (var eachICDDiseaseNum in top20all)
+                        foreach (var eachICDDiseaseNum in top20male)
                         {
                             myWorkSheet.Cells[7 + i, 2] = eachICDDiseaseNum.Key.ToString();
                             myWorkSheet.Cells[7 + i, 3] = eachICDDiseaseNum.Value.ToString();
@@ -350,6 +376,34 @@ namespace PatientDataExport
                     myWorkSheet.Cells[7, 3] = "异常";
                 }
 
+                //筛选女性前20位的诊断
+                try
+                {
+                    var top20female = (from temptop20all in Dic_DiseaseSex
+                                     where temptop20all.Key.Contains("女，")
+                                     orderby temptop20all.Value
+                                     descending
+                                     select temptop20all).Take(50);
+                    if (top20female == null)
+                    {
+                        myWorkSheet.Cells[7, 45] = "空白";
+                        myWorkSheet.Cells[7, 46] = "空白";
+                    }
+                    else
+                    {
+                        foreach (var eachICDDiseaseNum in top20female)
+                        {
+                            myWorkSheet.Cells[7 + i, 45] = eachICDDiseaseNum.Key.ToString();
+                            myWorkSheet.Cells[7 + i, 46] = eachICDDiseaseNum.Value.ToString();
+                            i++;
+                        }
+                    }
+                }//此处筛选前20位诊断的查询过程，
+                catch
+                {
+                    myWorkSheet.Cells[7, 2] = "异常";
+                    myWorkSheet.Cells[7, 3] = "异常";
+                }
                 //分年龄、性别ICD诊断的数量
                 //<45
                 myWorkSheet.Cells[6, 5] = "男，<45 ICD诊断名称";
@@ -702,6 +756,7 @@ namespace PatientDataExport
                 myExcel.Quit();
                 iffinished.Text = "已完成！";
             }//这里是确定搜索固定范围内的病人结果不为空
+
         }
 
         private void btn_selectSavePath_Click(object sender, EventArgs e)
@@ -714,13 +769,14 @@ namespace PatientDataExport
             }
         }
 
+        //界面的年份选取值的限制
         private void datePicker_startDate_ValueChanged(object sender, EventArgs e)
         {
             if (datePicker_startDate.Value > Convert.ToDateTime("2015-1-1 00:00:00")) datePicker_startDate.Value = Convert.ToDateTime("2015-1-1 00:00:00");
             if (datePicker_startDate.Value < Convert.ToDateTime("2008-1-1 00:00:00")) datePicker_startDate.Value = Convert.ToDateTime("2008-1-1 00:00:00");
             lab_endDate.Text = datePicker_startDate.Value.AddYears(1).ToShortDateString();
         }
-
+        //年龄分组
         public string AgeSeprate(string age)
         {
             short _age = 0;
@@ -739,13 +795,34 @@ namespace PatientDataExport
             }
             return "空白";
         }
-
+        //性别分组
         public string Sex(string sex)
         {
             if (sex == "男") return "男";
             if (sex == "女") return "女";
             MessageBox.Show("性别定义出错");
             return "错误";
+        }
+
+        public void OutputCellContent(Excel.Worksheet outputWorksheet, int cellx, int celly, string cellContent)
+        {
+ 
+        }
+        //保留 用于选择连接的数据库
+        public System.Data.SqlClient.SqlConnectionStringBuilder ConnectionString()
+        {
+            //<add name="medbaseEntities" 
+            //connectionString="metadata=res://*/Data.PatientData.csdl|res://*/Data.PatientData.ssdl|res://*/Data.PatientData.msl;
+            //provider=System.Data.SqlClient;provider connection string=&quot;
+            //data source=192.168.1.161;
+            //initial catalog=medbase;
+            //user id=sa;password=@Zhangkai851983;
+            //MultipleActiveResultSets=True;
+            //App=EntityFramework&quot;" 
+            //providerName="System.Data.EntityClient" />
+            System.Data.SqlClient.SqlConnectionStringBuilder myConnectionString = new System.Data.SqlClient.SqlConnectionStringBuilder();
+            myConnectionString.ConnectionString = @"metadata=res://*/Data.PatientData.csdl|res://*/Data.PatientData.ssdl|res://*/Data.PatientData.msl;provider=System.Data.SqlClient;provider connection string=&quot;data source=192.168.1.161;initial catalog=medbase;user id=sa;password=@Zhangkai851983;MultipleActiveResultSets=True;App=EntityFramework&quot;";
+            return myConnectionString;
         }
 
     }
