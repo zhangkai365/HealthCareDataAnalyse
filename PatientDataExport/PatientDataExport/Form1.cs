@@ -22,6 +22,9 @@ namespace PatientDataExport
 
         private void btn_beginProgress_Click(object sender, EventArgs e)
         {
+            //设置ICD存储文件的路径及文件名
+            string ICDFileNameOpen = @"C:\Users\Win7x64_20140606\Desktop\2014年查体工作总结（修改201408080753）\疾病总表\ICD1.xls";
+            string ICDFileNameStore = @"C:\Users\Win7x64_20140606\Desktop\2014年查体工作总结（修改201408080753）\疾病总表\ICD2.xls";
             //禁用界面上面所有按钮
             btn_beginProgress.Enabled = false;
             btn_selectSavePath.Enabled = false;
@@ -45,6 +48,27 @@ namespace PatientDataExport
             //存储主要的疾病的ICD诊断号码的Excel
             Excel.Workbook ICDWorkbook = myExcel.Workbooks.Add(true);
             Excel.Worksheet ICDWorksheet = ICDWorkbook.Worksheets[1];
+
+            //打开所有诊断的总表
+            Excel.Workbook allICDWorkbook = myExcel.Workbooks.Open(ICDFileNameOpen);
+            Excel.Worksheet allICDWorksheet = allICDWorkbook.Worksheets[1];
+
+            //全部疾病诊断列表名称
+            Dictionary<string, string> List_Disease = new Dictionary<string, string>();
+            int count_empty = 0;
+            for (int i = 0; i < 100; i++)
+            {
+                try
+                {
+                    List_Disease.Add(ICDWorksheet.get_Range("B" + i).Text, ICDWorksheet.get_Range("A" + i).Text);
+                }
+                catch
+                {
+                    count_empty++;
+                    continue;
+                }
+                if (count_empty > 2) break;
+            }
 
             //统计不同年龄段的人数
             Dictionary<string, int> Dic_NumAge = new Dictionary<string, int>();
@@ -83,7 +107,7 @@ namespace PatientDataExport
             //离休  s1.a6405 == "02"
             //离休 解决与上面重复问题 (s1.a0704 != "01" && s1.a0704 != "02" && s1.a0704 != "03" && s1.a0704 != "04" && s1.a0704 != "05" && s1.a0704 != "14" && s1.a6405 == "02")
             var ExportResult = from s1 in myMedBaseEntities.hcheckmemb
-                               where s1.checkdate > startDate && s1.checkdate < endDate && (s1.a0704 != "01" && s1.a0704 != "02" && s1.a0704 != "03" && s1.a0704 != "04" && s1.a0704 != "05" && s1.a0704 != "14" && s1.a6405 == "02")
+                               where s1.checkdate > startDate && s1.checkdate < endDate && (s1.a0704 == "01" || s1.a0704 == "02" || s1.a0704 == "03" || s1.a0704 == "04" || s1.a0704 == "05" || s1.a0704 == "14" || s1.a6405 == "02")
                                select s1;
             //总数
             totalNum.Text = ExportResult.Count().ToString();
@@ -202,7 +226,7 @@ namespace PatientDataExport
                                     //区分患者的年龄
                                     string ageSep = AgeSeprate(checkpatient.age.ToString()) + "，" + eachDisease.diagcode.ToString();
                                     //区分患者的性别
-                                    string SexSep = Sex(checkpatient.a0107);
+                                    string SexSep = Sex(checkpatient.a0107) + "，" + eachDisease.diagcode.ToString();
                                     //区分患者的年龄和性别
                                     string ageSexSep = Sex(checkpatient.a0107) + "，" + ageSep;
                                     //不分年龄的
@@ -282,7 +306,8 @@ namespace PatientDataExport
                             }
                         }
                     }//确定此病人有诊断的结束
-                    catch { }
+                    catch 
+                    { }
                 }
 
 
@@ -332,7 +357,7 @@ namespace PatientDataExport
                 myWorkSheet.Cells[5, 5] = totalICDDiseaseNum;
                 
                 //总非ICD诊断数量
-                myWorkSheet.Cells[5, 7] = "总非ICD诊断的数量";
+                myWorkSheet.Cells[5, 6] = "总非ICD诊断的数量";
                 int totalNotICDDiseaseNum = 0;
                 foreach (var total_eachPersonNotICDDiseaseNum in Dic_DiseaseEachPersonNotICDNum)
                 {
@@ -341,420 +366,151 @@ namespace PatientDataExport
                 myWorkSheet.Cells[5, 7] = totalNotICDDiseaseNum;
 
                 //各个ICD诊断的数量
-                int i = 0;
-                myWorkSheet.Cells[6, 1] = "男，ICD诊断名称";
-                myWorkSheet.Cells[6, 2] = "男，ICD诊断编码";
-                myWorkSheet.Cells[6, 3] = "男，此ICD诊断发病数量";
-
-
-                //筛选男性前20位的诊断
-                try
+                //简化ICD表头
+                //性别字符串集合
+                string[] Collection_Sex = { "男", "女" };
+                //疾病诊断
+                string[] titleDiseasePart = { "ICD诊断名称", "ICD诊断编码", "此ICD诊断发病数量" };
+                int titleRangeAll = 1;
+                foreach (string preTitleSex in Collection_Sex)
                 {
-                    var top20male = (from temptop20all in Dic_DiseaseSex
-                                    where temptop20all.Key.Contains("男，")
-                                    orderby temptop20all.Value
-                                    descending
-                                    select temptop20all).Take(50);
-                    if (top20male == null)
+                    foreach (string titleDisease in titleDiseasePart)
                     {
-                        myWorkSheet.Cells[7, 2] = "空白";
-                        myWorkSheet.Cells[7, 3] = "空白";
+                        myWorkSheet.Cells[6, titleRangeAll++] = preTitleSex + "," + titleDisease;
                     }
-                    else
-                    {
-                        foreach (var eachICDDiseaseNum in top20male)
-                        {
-                            myWorkSheet.Cells[7 + i, 2] = eachICDDiseaseNum.Key.ToString();
-                            myWorkSheet.Cells[7 + i, 3] = eachICDDiseaseNum.Value.ToString();
-                            i++;
-                        }
-                    }
-                }//此处筛选前20位诊断的查询过程，
-                catch
-                {
-                    myWorkSheet.Cells[7, 2] = "异常";
-                    myWorkSheet.Cells[7, 3] = "异常";
                 }
-
-                //筛选女性前20位的诊断
-                try
+                //筛选此范围内前50位的诊断，分男女
+                //控制横向移动的变量
+                int countX_Top20all = 0;
+                foreach (string top20allSex in Collection_Sex)
                 {
-                    var top20female = (from temptop20all in Dic_DiseaseSex
-                                     where temptop20all.Key.Contains("女，")
-                                     orderby temptop20all.Value
-                                     descending
-                                     select temptop20all).Take(50);
-                    if (top20female == null)
+                    //控制纵向移动的变量
+                    int countY_Top20all = 0;
+                    try
                     {
-                        myWorkSheet.Cells[7, 45] = "空白";
-                        myWorkSheet.Cells[7, 46] = "空白";
-                    }
-                    else
-                    {
-                        foreach (var eachICDDiseaseNum in top20female)
-                        {
-                            myWorkSheet.Cells[7 + i, 45] = eachICDDiseaseNum.Key.ToString();
-                            myWorkSheet.Cells[7 + i, 46] = eachICDDiseaseNum.Value.ToString();
-                            i++;
-                        }
-                    }
-                }//此处筛选前20位诊断的查询过程，
-                catch
-                {
-                    myWorkSheet.Cells[7, 2] = "异常";
-                    myWorkSheet.Cells[7, 3] = "异常";
-                }
-                //分年龄、性别ICD诊断的数量
-                //<45
-                myWorkSheet.Cells[6, 5] = "男，<45 ICD诊断名称";
-                myWorkSheet.Cells[6, 6] = "男，<45 ICD诊断编码";
-                myWorkSheet.Cells[6, 7] = "男，<45 此ICD诊断发病数量";
-                int templower45m = 0;
-                //45-50
-                myWorkSheet.Cells[6, 9] = "男，45-50 ICD诊断名称";
-                myWorkSheet.Cells[6, 10] = "男，45-50 ICD诊断编码";
-                myWorkSheet.Cells[6, 11] = "男，45-50 此ICD诊断发病数量";
-                int temp45to50m = 0;
-                //50-55
-                myWorkSheet.Cells[6, 13] = "男，50-55 ICD诊断名称";
-                myWorkSheet.Cells[6, 14] = "男，50-55 ICD诊断编码";
-                myWorkSheet.Cells[6, 15] = "男，50-55 此ICD诊断发病数量";
-                int temp50to55m = 0;
-                //55-60
-                myWorkSheet.Cells[6, 17] = "男，55-60 ICD诊断名称";
-                myWorkSheet.Cells[6, 18] = "男，55-60 ICD诊断编码";
-                myWorkSheet.Cells[6, 19] = "男，55-60 此ICD诊断发病数量";
-                int temp55to60m = 0;
-                //>60
-                myWorkSheet.Cells[6, 21] = "男，>60 ICD诊断名称";
-                myWorkSheet.Cells[6, 22] = "男，>60 ICD诊断编码";
-                myWorkSheet.Cells[6, 23] = "男，>60 此ICD诊断发病数量";
-                int temphigher60m = 0;
-                //<45
-                myWorkSheet.Cells[6, 25] = "女，<45 ICD诊断名称";
-                myWorkSheet.Cells[6, 26] = "女，<45 ICD诊断编码";
-                myWorkSheet.Cells[6, 27] = "女，<45 此ICD诊断发病数量";
-                int templower45f = 0;
-                //45-50
-                myWorkSheet.Cells[6, 29] = "女，45-50 ICD诊断名称";
-                myWorkSheet.Cells[6, 30] = "女，45-50 ICD诊断编码";
-                myWorkSheet.Cells[6, 31] = "女，45-50 此ICD诊断发病数量";
-                int temp45to50f = 0;
-                //50-55
-                myWorkSheet.Cells[6, 33] = "女，50-55 ICD诊断名称";
-                myWorkSheet.Cells[6, 34] = "女，50-55 ICD诊断编码";
-                myWorkSheet.Cells[6, 35] = "女，50-55 此ICD诊断发病数量";
-                int temp50to55f = 0;
-                //55-60
-                myWorkSheet.Cells[6, 37] = "女，55-60 ICD诊断名称";
-                myWorkSheet.Cells[6, 38] = "女，55-60 ICD诊断编码";
-                myWorkSheet.Cells[6, 39] = "女，55-60 此ICD诊断发病数量";
-                int temp55to60f = 0;
-                //>60
-                myWorkSheet.Cells[6, 41] = "女，>60 ICD诊断名称";
-                myWorkSheet.Cells[6, 42] = "女，>60 ICD诊断编码";
-                myWorkSheet.Cells[6, 43] = "女，>60 此ICD诊断发病数量";
-                int temphigher60f = 0;
-
-
-
-                //筛选<45的前20位诊断
-                try
-                {
-                    var top20lower45m = (from temptop20lower45 in Dic_DiseaseAgeSex
-                                        where temptop20lower45.Key.Contains("男，<45")
-                                        orderby temptop20lower45.Value
-                                        descending
-                                        select temptop20lower45).Take(20);
-                    if (top20lower45m == null)
-                    {
-                        myWorkSheet.Cells[7, 6] = "空白";
-                        myWorkSheet.Cells[7, 7] = "空白";
-                    }
-                    else
-                    {
-                        foreach (var eachDiagnosis in top20lower45m)
-                        {
-                            myWorkSheet.Cells[7 + templower45m, 6] = eachDiagnosis.Key.ToString();
-                            myWorkSheet.Cells[7 + templower45m, 7] = eachDiagnosis.Value.ToString();
-                            templower45m++;
-                        }
-                    }
-                }//筛选<45岁的前20位诊断的查询
-                catch
-                {
-                    myWorkSheet.Cells[8, 6] = "异常";
-                    myWorkSheet.Cells[8, 7] = "异常"; 
-                }
-
-                //筛选45-50前20位诊断
-                try
-                {
-                    var top2045to50m = (from temptop2045to50 in Dic_DiseaseAgeSex
-                                        where temptop2045to50.Key.Contains("男，45-50")
-                                        orderby temptop2045to50.Value
-                                        descending
-                                        select temptop2045to50).Take(20);
-                    if (top2045to50m == null)
-                    {
-                        myWorkSheet.Cells[7, 10] = "空白";
-                        myWorkSheet.Cells[7, 11] = "空白";
-                    }
-                    else
-                    {
-                        foreach (var eachDiagnosis in top2045to50m)
-                        {
-                            myWorkSheet.Cells[7 + temp45to50m, 10] = eachDiagnosis.Key.ToString();
-                            myWorkSheet.Cells[7 + temp45to50m, 11] = eachDiagnosis.Value.ToString();
-                            temp45to50m++;
-                        }
-                    }
-                }//筛选45-50岁的前20位诊断的查询
-                catch
-                {
-                    myWorkSheet.Cells[7, 10] = "异常";
-                    myWorkSheet.Cells[7, 11] = "异常";
-                }
-
-                //筛选50-55前20位诊断
-                try
-                {
-                    var top2050to55m = (from temptop2050to55 in Dic_DiseaseAgeSex
-                                       where temptop2050to55.Key.Contains("男，50-55")
-                                       orderby temptop2050to55.Value
-                                       descending
-                                       select temptop2050to55).Take(20);
-                    if (top2050to55m == null)
-                    {
-                        myWorkSheet.Cells[7, 14] = "空白";
-                        myWorkSheet.Cells[7, 15] = "空白";
-                    }
-                    else
-                    {
-                        foreach (var eachDiagnosis in top2050to55m)
-                        {
-                            myWorkSheet.Cells[7 + temp50to55m, 14] = eachDiagnosis.Key.ToString();
-                            myWorkSheet.Cells[7 + temp50to55m, 15] = eachDiagnosis.Value.ToString();
-                            temp50to55m++;
-                        }
-                    }
-                }//筛选50-55岁的前20位诊断的查询
-                catch
-                {
-                    myWorkSheet.Cells[7, 14] = "异常";
-                    myWorkSheet.Cells[7, 15] = "异常";
-                }
-
-                //筛选55-60前20位诊断
-                try
-                {
-                    var top2055to60m = (from temptop2055to60 in Dic_DiseaseAgeSex
-                                       where temptop2055to60.Key.Contains("男，55-60")
-                                       orderby temptop2055to60.Value
-                                       descending
-                                       select temptop2055to60).Take(20);
-                    if (top2055to60m == null)
-                    {
-                        myWorkSheet.Cells[7, 18] = "空白";
-                        myWorkSheet.Cells[7, 19] = "空白";
-                    }
-                    else
-                    {
-                        foreach (var eachDiagnosis in top2055to60m)
-                        {
-                            myWorkSheet.Cells[7 + temp55to60m, 18] = eachDiagnosis.Key.ToString();
-                            myWorkSheet.Cells[7 + temp55to60m, 19] = eachDiagnosis.Value.ToString();
-                            temp55to60m++;
-                        }
-                    }
-                }//筛选50-55岁的前20位诊断的查询
-                catch
-                {
-                    myWorkSheet.Cells[7, 18] = "异常";
-                    myWorkSheet.Cells[7, 19] = "异常";
-                }
-
-                //筛选>60的前20位诊断
-                try
-                {
-                    var top20higher60m = (from temptop20higher60 in Dic_DiseaseAgeSex
-                                        where temptop20higher60.Key.Contains("男，>60")
-                                        orderby temptop20higher60.Value
-                                        descending
-                                        select temptop20higher60).Take(20);
-                    if (top20higher60m == null)
-                    {
-                        myWorkSheet.Cells[7, 22] = "空白";
-                        myWorkSheet.Cells[7, 23] = "空白";
-                    }
-                    else
-                    {
-                        foreach (var eachDiagnosis in top20higher60m)
-                        {
-                            myWorkSheet.Cells[7 + temphigher60m, 22] = eachDiagnosis.Key.ToString();
-                            myWorkSheet.Cells[7 + temphigher60m, 23] = eachDiagnosis.Value.ToString();
-                            temphigher60m++;
-                        }
-                    }
-                }//筛选>60岁的前20位诊断的查询
-                catch
-                {
-                    myWorkSheet.Cells[8, 22] = "异常";
-                    myWorkSheet.Cells[8, 23] = "异常";
-                }
-
-
-
-                //筛选<45的前20位诊断
-                try
-                {
-                    var top20lower45f = (from temptop20lower45 in Dic_DiseaseAgeSex
-                                        where temptop20lower45.Key.Contains("女，<45")
-                                        orderby temptop20lower45.Value
-                                        descending
-                                        select temptop20lower45).Take(20);
-                    if (top20lower45f == null)
-                    {
-                        myWorkSheet.Cells[7, 26] = "空白";
-                        myWorkSheet.Cells[7, 27] = "空白";
-                    }
-                    else
-                    {
-                        foreach (var eachDiagnosis in top20lower45f)
-                        {
-                            myWorkSheet.Cells[7 + templower45f, 26] = eachDiagnosis.Key.ToString();
-                            myWorkSheet.Cells[7 + templower45f, 27] = eachDiagnosis.Value.ToString();
-                            templower45f++;
-                        }
-                    }
-                }//筛选<45岁的前20位诊断的查询
-                catch
-                {
-                    myWorkSheet.Cells[7, 26] = "异常";
-                    myWorkSheet.Cells[7, 27] = "异常";
-                }
-
-                //筛选45-50前20位诊断
-                try
-                {
-                    var top2045to50f = (from temptop2045to50 in Dic_DiseaseAgeSex
-                                       where temptop2045to50.Key.Contains("女，45-50")
-                                       orderby temptop2045to50.Value
-                                       descending
-                                       select temptop2045to50).Take(20);
-                    if (top2045to50f == null)
-                    {
-                        myWorkSheet.Cells[7, 30] = "空白";
-                        myWorkSheet.Cells[7, 31] = "空白";
-                    }
-                    else
-                    {
-                        foreach (var eachDiagnosis in top2045to50f)
-                        {
-                            myWorkSheet.Cells[7 + temp45to50f, 30] = eachDiagnosis.Key.ToString();
-                            myWorkSheet.Cells[7 + temp45to50f, 31] = eachDiagnosis.Value.ToString();
-                            temp45to50f++;
-                        }
-                    }
-                }//筛选45-50岁的前20位诊断的查询
-                catch
-                {
-                    myWorkSheet.Cells[7, 30] = "异常";
-                    myWorkSheet.Cells[7, 31] = "异常";
-                }
-
-                //筛选50-55前20位诊断
-                try
-                {
-                    var top2050to55f = (from temptop2050to55 in Dic_DiseaseAgeSex
-                                       where temptop2050to55.Key.Contains("女，50-55")
-                                       orderby temptop2050to55.Value
-                                       descending
-                                       select temptop2050to55).Take(20);
-                    if (top2050to55f == null)
-                    {
-                        myWorkSheet.Cells[7, 34] = "空白";
-                        myWorkSheet.Cells[7, 35] = "空白";
-                    }
-                    else
-                    {
-                        foreach (var eachDiagnosis in top2050to55f)
-                        {
-                            myWorkSheet.Cells[7 + temp50to55f, 34] = eachDiagnosis.Key.ToString();
-                            myWorkSheet.Cells[7 + temp50to55f, 35] = eachDiagnosis.Value.ToString();
-                            temp50to55f++;
-                        }
-                    }
-                }//筛选50-55岁的前20位诊断的查询
-                catch
-                {
-                    myWorkSheet.Cells[7, 34] = "异常";
-                    myWorkSheet.Cells[7, 35] = "异常";
-                }
-
-                //筛选55-60前20位诊断
-                try
-                {
-                    var top2055to60f = (from temptop2055to60 in Dic_DiseaseAgeSex
-                                       where temptop2055to60.Key.Contains("女，55-60")
-                                       orderby temptop2055to60.Value
-                                       descending
-                                       select temptop2055to60).Take(20);
-                    if (top2055to60f == null)
-                    {
-                        myWorkSheet.Cells[7, 38] = "空白";
-                        myWorkSheet.Cells[7, 39] = "空白";
-                    }
-                    else
-                    {
-                        foreach (var eachDiagnosis in top2055to60f)
-                        {
-                            myWorkSheet.Cells[7 + temp55to60f, 38] = eachDiagnosis.Key.ToString();
-                            myWorkSheet.Cells[7 + temp55to60f, 39] = eachDiagnosis.Value.ToString();
-                            temp55to60f++;
-                        }
-                    }
-                }//筛选50-55岁的前20位诊断的查询
-                catch
-                {
-                    myWorkSheet.Cells[7, 38] = "异常";
-                    myWorkSheet.Cells[7, 39] = "异常";
-                }
-
-                //筛选>60的前20位诊断
-                try
-                {
-                    var top20higher60f = (from temptop20higher60 in Dic_DiseaseAgeSex
-                                         where temptop20higher60.Key.Contains("女，>60")
-                                         orderby temptop20higher60.Value
+                        var top20male = (from temptop20all in Dic_DiseaseSex
+                                         where temptop20all.Key.Contains(top20allSex + "，")
+                                         orderby temptop20all.Value
                                          descending
-                                         select temptop20higher60).Take(20);
-                    if (top20higher60f == null)
-                    {
-                        myWorkSheet.Cells[7, 42] = "空白";
-                        myWorkSheet.Cells[7, 43] = "空白";
-                    }
-                    else
-                    {
-                        foreach (var eachDiagnosis in top20higher60f)
+                                         select temptop20all).Take(100);
+                        if (top20male == null)
                         {
-                            myWorkSheet.Cells[7 + temphigher60f, 42] = eachDiagnosis.Key.ToString();
-                            myWorkSheet.Cells[7 + temphigher60f, 43] = eachDiagnosis.Value.ToString();
-                            temphigher60f++;
+                            myWorkSheet.Cells[7, 2 + countX_Top20all] = "空白";
+                            myWorkSheet.Cells[7, 3 + countX_Top20all] = "空白";
+                            ICDWorksheet.Cells[1, 2 + countX_Top20all] = "空白";
+                            ICDWorksheet.Cells[1, 3 + countX_Top20all] = "空白";
+                        }
+                        else
+                        {
+                            foreach (var eachICDDiseaseNum in top20male)
+                            {
+                                //做出统计
+                                myWorkSheet.Cells[7 + countY_Top20all, 1 + countX_Top20all] = DiagnosisName(List_Disease,eachICDDiseaseNum.Key);
+                                myWorkSheet.Cells[7 + countY_Top20all, 2 + countX_Top20all] = eachICDDiseaseNum.Key.ToString();
+                                myWorkSheet.Cells[7 + countY_Top20all, 3 + countX_Top20all] = eachICDDiseaseNum.Value.ToString();
+                                //写入所有的诊断列表
+                                ICDWorksheet.Cells[1 + countY_Top20all, 2 + countX_Top20all] = eachICDDiseaseNum.Key.ToString();
+                                ICDWorksheet.Cells[1 + countY_Top20all, 3 +countX_Top20all] = eachICDDiseaseNum.Value.ToString();
+                                //纵向移动
+                                countY_Top20all++;
+                            }
                         }
                     }
-                }//筛选>60岁的前20位诊断的查询
-                catch
-                {
-                    myWorkSheet.Cells[7, 42] = "异常";
-                    myWorkSheet.Cells[7, 43] = "异常";
+                    catch
+                    {
+                        myWorkSheet.Cells[7, 2] = "异常";
+                        myWorkSheet.Cells[7, 3] = "异常";
+                        ICDWorksheet.Cells[1, 2] = "异常";
+                        ICDWorksheet.Cells[1, 3] = "异常";
+                    }
+                    //横向移动
+                    countX_Top20all = countX_Top20all +3;
                 }
+
+                //分年龄、性别ICD诊断的数量的标题，简化
+                string[] titleAge = { "<45", "45-50", "50-55", ">60" };
+                //控制表头横向移动的变量
+                int countX_titleSexAgeDisease = 0;
+                foreach (string title_Sex in Collection_Sex)
+                {
+                    foreach (string title_Age in titleAge)
+                    {
+                        foreach (string title_Disease in titleDiseasePart)
+                        {
+                            myWorkSheet.Cells[6, 7 + countX_titleSexAgeDisease++] = title_Sex + "，" + title_Age + "，" + title_Disease ;
+                        }
+                    }
+                }
+
+                //控制疾病列表的横向移动
+                int countX2_SexAgeDisease = 0;
+
+                //循环性别
+                foreach (string temp_titleSex in Collection_Sex)
+                {
+                    //循环年龄
+                    foreach (string temp_titleAge in titleAge)
+                    {
+                        //控制疾病移动的纵向移动,每次循环之内的疾病都清零
+                        int countY2_SexAgeDisease = 0;
+                        try
+                        {
+                            var top20DiseaseOfEachAge = (from tempTop20Disease in Dic_DiseaseAgeSex
+                                                         where tempTop20Disease.Key.Contains(temp_titleSex + "，" + temp_titleAge)
+                                                         orderby tempTop20Disease.Value
+                                                         descending
+                                                         select tempTop20Disease).Take(50);
+                            //此性别、年龄的患者的统计到疾病为空白
+                            if (top20DiseaseOfEachAge == null)
+                            {
+                                //诊断名称
+                                myWorkSheet.Cells[7 + countY2_SexAgeDisease, 7 + countX2_SexAgeDisease] = "空白";
+                                //诊断编码
+                                myWorkSheet.Cells[7 + countY2_SexAgeDisease, 8 + countX2_SexAgeDisease] = "空白";
+                                //诊断出现的数量
+                                myWorkSheet.Cells[7 + countY2_SexAgeDisease, 9 + countX2_SexAgeDisease] = "空白";
+                            }
+                            else
+                            {
+                                foreach (var eachDiseaseOfTop20DiseaseOfEachAge in top20DiseaseOfEachAge)
+                                {
+                                    //通过列表之中查找响应的疾病名称
+                                    myWorkSheet.Cells[7 + countY2_SexAgeDisease, 7 + countX2_SexAgeDisease] = DiagnosisName(List_Disease, eachDiseaseOfTop20DiseaseOfEachAge.Key.ToString());
+                                    //疾病的编码
+                                    myWorkSheet.Cells[7 + countY2_SexAgeDisease, 8 + countX2_SexAgeDisease] = eachDiseaseOfTop20DiseaseOfEachAge.Key.ToString();
+                                    //疾病的数量
+                                    myWorkSheet.Cells[7 + countY2_SexAgeDisease, 9 + countX2_SexAgeDisease] = eachDiseaseOfTop20DiseaseOfEachAge.Value.ToString();
+                                    countY2_SexAgeDisease++;
+                                }
+                            }
+                        }
+                        catch 
+                        {
+                            //诊断名称
+                            myWorkSheet.Cells[7 + countY2_SexAgeDisease, 7 + countX2_SexAgeDisease] = "查询过程出现异常";
+                            //诊断编码
+                            myWorkSheet.Cells[7 + countY2_SexAgeDisease, 8 + countX2_SexAgeDisease] = "查询过程出现异常";
+                            //诊断出现的数量
+                            myWorkSheet.Cells[7 + countY2_SexAgeDisease, 9 + countX2_SexAgeDisease] = "查询过程出现异常";
+                        }
+                        //内层循环，每个年龄性别循环结束后，横向移动3个单元格
+                        countX2_SexAgeDisease = countX2_SexAgeDisease + 3;
+                    }
+                }
+
+
 
                 //保存文件
                 myWorkbook.SaveAs(FilePath);
                 myWorkbook.Close();
+                //如果界面上面的创建新疾病列表的选项为选中，则保存新的疾病列表
+                if (chk_CreateNewDiseaseList.Checked == true)
+                {
+                    ICDWorkbook.SaveAs(ICDFileNameStore);
+                    ICDWorkbook.Close(); 
+                }
                 myExcel.Quit();
-                iffinished.Text = "已完成！";
+                iffinished.Text = @"已完成！";
             }//这里是确定搜索固定范围内的病人结果不为空
 
         }
@@ -806,7 +562,7 @@ namespace PatientDataExport
 
         public void OutputCellContent(Excel.Worksheet outputWorksheet, int cellx, int celly, string cellContent)
         {
- 
+            outputWorksheet.Cells[cellx, celly] = cellContent;
         }
         //保留 用于选择连接的数据库
         public System.Data.SqlClient.SqlConnectionStringBuilder ConnectionString()
@@ -823,6 +579,21 @@ namespace PatientDataExport
             System.Data.SqlClient.SqlConnectionStringBuilder myConnectionString = new System.Data.SqlClient.SqlConnectionStringBuilder();
             myConnectionString.ConnectionString = @"metadata=res://*/Data.PatientData.csdl|res://*/Data.PatientData.ssdl|res://*/Data.PatientData.msl;provider=System.Data.SqlClient;provider connection string=&quot;data source=192.168.1.161;initial catalog=medbase;user id=sa;password=@Zhangkai851983;MultipleActiveResultSets=True;App=EntityFramework&quot;";
             return myConnectionString;
+        }
+
+        /// <summary>
+        /// 确定疾病的名称
+        /// </summary>
+        /// <param name="allICDDisease">全部疾病的列表</param>
+        /// <param name="ICDCode">待确定的疾病编码</param>
+        /// <returns></returns>
+        public string DiagnosisName(Dictionary<string,string> allICDDisease ,string ICDCode)
+        {
+            if (allICDDisease.ContainsKey(ICDCode))
+            {
+                return allICDDisease[ICDCode].ToString();
+            }
+            return "无此编码疾病信息";
         }
 
     }

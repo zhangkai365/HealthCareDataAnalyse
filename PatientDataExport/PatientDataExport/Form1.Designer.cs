@@ -44,14 +44,17 @@
             this.lab_endDate = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
+            this.groupBox4 = new System.Windows.Forms.GroupBox();
+            this.chk_CreateNewDiseaseList = new System.Windows.Forms.CheckBox();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.groupBox3.SuspendLayout();
+            this.groupBox4.SuspendLayout();
             this.SuspendLayout();
             // 
             // btn_beginProgress
             // 
-            this.btn_beginProgress.Location = new System.Drawing.Point(525, 274);
+            this.btn_beginProgress.Location = new System.Drawing.Point(503, 340);
             this.btn_beginProgress.Name = "btn_beginProgress";
             this.btn_beginProgress.Size = new System.Drawing.Size(144, 32);
             this.btn_beginProgress.TabIndex = 2;
@@ -106,7 +109,7 @@
             this.groupBox2.Controls.Add(this.totalNum);
             this.groupBox2.Controls.Add(this.progressNum);
             this.groupBox2.Controls.Add(this.label2);
-            this.groupBox2.Location = new System.Drawing.Point(369, 183);
+            this.groupBox2.Location = new System.Drawing.Point(371, 249);
             this.groupBox2.Name = "groupBox2";
             this.groupBox2.Size = new System.Drawing.Size(445, 57);
             this.groupBox2.TabIndex = 12;
@@ -207,11 +210,34 @@
             this.label4.TabIndex = 0;
             this.label4.Text = "起始日期：";
             // 
+            // groupBox4
+            // 
+            this.groupBox4.Controls.Add(this.chk_CreateNewDiseaseList);
+            this.groupBox4.Location = new System.Drawing.Point(371, 162);
+            this.groupBox4.Name = "groupBox4";
+            this.groupBox4.Size = new System.Drawing.Size(442, 66);
+            this.groupBox4.TabIndex = 14;
+            this.groupBox4.TabStop = false;
+            this.groupBox4.Text = "是否要建立新的疾病列表";
+            // 
+            // chk_CreateNewDiseaseList
+            // 
+            this.chk_CreateNewDiseaseList.AutoSize = true;
+            this.chk_CreateNewDiseaseList.Checked = true;
+            this.chk_CreateNewDiseaseList.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.chk_CreateNewDiseaseList.Location = new System.Drawing.Point(41, 30);
+            this.chk_CreateNewDiseaseList.Name = "chk_CreateNewDiseaseList";
+            this.chk_CreateNewDiseaseList.Size = new System.Drawing.Size(120, 16);
+            this.chk_CreateNewDiseaseList.TabIndex = 0;
+            this.chk_CreateNewDiseaseList.Text = "建立新的疾病列表";
+            this.chk_CreateNewDiseaseList.UseVisualStyleBackColor = true;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(842, 322);
+            this.ClientSize = new System.Drawing.Size(840, 384);
+            this.Controls.Add(this.groupBox4);
             this.Controls.Add(this.groupBox3);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox1);
@@ -224,6 +250,8 @@
             this.groupBox2.PerformLayout();
             this.groupBox3.ResumeLayout(false);
             this.groupBox3.PerformLayout();
+            this.groupBox4.ResumeLayout(false);
+            this.groupBox4.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -246,6 +274,8 @@
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.DateTimePicker datePicker_startDate;
+        private System.Windows.Forms.GroupBox groupBox4;
+        private System.Windows.Forms.CheckBox chk_CreateNewDiseaseList;
     }
 }
 
