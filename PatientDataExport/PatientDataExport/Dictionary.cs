@@ -25,11 +25,8 @@ namespace PatientDataExport
         //分年龄、性别统计
         public Dictionary<string, int> DiseaseAgeSex = new Dictionary<string, int>();
 
-        //每个人的诊断数目统计
-        public Dictionary<string, int> DiseaseEachPersonNum = new Dictionary<string, int>();
-        //每个人的有确定ICD10疾病数目
-        public Dictionary<string, int> DiseaseEachPersonICDNum = new Dictionary<string, int>();
-        //每个人无确定ICD诊断数目
-        public Dictionary<string, int> DiseaseEachPersonNotICDNum = new Dictionary<string, int>();
+        public int DiseaseNum = 0;
+        public int ICDDiseaseNum = 0;
+        public int NotICDDiseaseNum = 0;
     }
 }

@@ -77,30 +77,17 @@ namespace PatientDataExport
 
             //总疾病的数量
             myWorkSheet.Cells[5, 1] = "总疾病的数量";
-            int totalDiseaseNum = 0;
-            foreach (var total_eachPersonDiseaseNum in myDic.DiseaseEachPersonNum)
-            {
-                totalDiseaseNum = totalDiseaseNum + total_eachPersonDiseaseNum.Value;
-            }
-            myWorkSheet.Cells[5, 2] = totalDiseaseNum;
+            myWorkSheet.Cells[5, 2] = myDic.DiseaseNum;
 
             //总ICD诊断数量
             myWorkSheet.Cells[5, 4] = "总ICD诊断的数量";
             int totalICDDiseaseNum = 0;
-            foreach (var total_eachPersonICDDiseaseNum in myDic.DiseaseEachPersonICDNum)
-            {
-                totalICDDiseaseNum = totalICDDiseaseNum + total_eachPersonICDDiseaseNum.Value;
-            }
-            myWorkSheet.Cells[5, 5] = totalICDDiseaseNum;
+            myWorkSheet.Cells[5, 5] = myDic.ICDDiseaseNum;
 
             //总非ICD诊断数量
             myWorkSheet.Cells[5, 6] = "总非ICD诊断的数量";
             int totalNotICDDiseaseNum = 0;
-            foreach (var total_eachPersonNotICDDiseaseNum in myDic.DiseaseEachPersonNotICDNum)
-            {
-                totalNotICDDiseaseNum = totalNotICDDiseaseNum + total_eachPersonNotICDDiseaseNum.Value;
-            }
-            myWorkSheet.Cells[5, 7] = totalNotICDDiseaseNum;
+            myWorkSheet.Cells[5, 7] = myDic.NotICDDiseaseNum;
 
             //各个ICD诊断的数量
             //简化ICD表头

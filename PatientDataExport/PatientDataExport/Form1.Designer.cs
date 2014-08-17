@@ -34,6 +34,10 @@
             this.label3 = new System.Windows.Forms.Label();
             this.txtbox_FilePath = new System.Windows.Forms.TextBox();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.processOutputExcel = new System.Windows.Forms.Label();
+            this.label8 = new System.Windows.Forms.Label();
+            this.processStatistics = new System.Windows.Forms.Label();
+            this.label6 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.iffinished = new System.Windows.Forms.Label();
             this.totalNum = new System.Windows.Forms.Label();
@@ -46,10 +50,6 @@
             this.label4 = new System.Windows.Forms.Label();
             this.groupBox4 = new System.Windows.Forms.GroupBox();
             this.chk_CreateNewDiseaseList = new System.Windows.Forms.CheckBox();
-            this.label6 = new System.Windows.Forms.Label();
-            this.processStatistics = new System.Windows.Forms.Label();
-            this.label8 = new System.Windows.Forms.Label();
-            this.processOutputExcel = new System.Windows.Forms.Label();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.groupBox3.SuspendLayout();
@@ -123,6 +123,42 @@
             this.groupBox2.TabIndex = 12;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "文件处理进度";
+            // 
+            // processOutputExcel
+            // 
+            this.processOutputExcel.AutoSize = true;
+            this.processOutputExcel.Location = new System.Drawing.Point(156, 91);
+            this.processOutputExcel.Name = "processOutputExcel";
+            this.processOutputExcel.Size = new System.Drawing.Size(41, 12);
+            this.processOutputExcel.TabIndex = 15;
+            this.processOutputExcel.Text = "未开始";
+            // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.Location = new System.Drawing.Point(22, 91);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(119, 12);
+            this.label8.TabIndex = 14;
+            this.label8.Text = "输出Excel执行过程：";
+            // 
+            // processStatistics
+            // 
+            this.processStatistics.AutoSize = true;
+            this.processStatistics.Location = new System.Drawing.Point(156, 62);
+            this.processStatistics.Name = "processStatistics";
+            this.processStatistics.Size = new System.Drawing.Size(41, 12);
+            this.processStatistics.TabIndex = 13;
+            this.processStatistics.Text = "未开始";
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Location = new System.Drawing.Point(22, 62);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(113, 12);
+            this.label6.TabIndex = 12;
+            this.label6.Text = "统计过程执行情况：";
             // 
             // label1
             // 
@@ -239,42 +275,6 @@
             this.chk_CreateNewDiseaseList.TabIndex = 0;
             this.chk_CreateNewDiseaseList.Text = "建立新的疾病列表";
             this.chk_CreateNewDiseaseList.UseVisualStyleBackColor = true;
-            // 
-            // label6
-            // 
-            this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(22, 62);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(113, 12);
-            this.label6.TabIndex = 12;
-            this.label6.Text = "统计过程执行情况：";
-            // 
-            // processStatistics
-            // 
-            this.processStatistics.AutoSize = true;
-            this.processStatistics.Location = new System.Drawing.Point(156, 62);
-            this.processStatistics.Name = "processStatistics";
-            this.processStatistics.Size = new System.Drawing.Size(41, 12);
-            this.processStatistics.TabIndex = 13;
-            this.processStatistics.Text = "未开始";
-            // 
-            // label8
-            // 
-            this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(22, 91);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(119, 12);
-            this.label8.TabIndex = 14;
-            this.label8.Text = "输出Excel执行过程：";
-            // 
-            // processOutputExcel
-            // 
-            this.processOutputExcel.AutoSize = true;
-            this.processOutputExcel.Location = new System.Drawing.Point(156, 91);
-            this.processOutputExcel.Name = "processOutputExcel";
-            this.processOutputExcel.Size = new System.Drawing.Size(41, 12);
-            this.processOutputExcel.TabIndex = 15;
-            this.processOutputExcel.Text = "未开始";
             // 
             // Form1
             // 
