@@ -46,6 +46,10 @@
             this.label4 = new System.Windows.Forms.Label();
             this.groupBox4 = new System.Windows.Forms.GroupBox();
             this.chk_CreateNewDiseaseList = new System.Windows.Forms.CheckBox();
+            this.label6 = new System.Windows.Forms.Label();
+            this.processStatistics = new System.Windows.Forms.Label();
+            this.label8 = new System.Windows.Forms.Label();
+            this.processOutputExcel = new System.Windows.Forms.Label();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.groupBox3.SuspendLayout();
@@ -54,7 +58,7 @@
             // 
             // btn_beginProgress
             // 
-            this.btn_beginProgress.Location = new System.Drawing.Point(503, 340);
+            this.btn_beginProgress.Location = new System.Drawing.Point(527, 370);
             this.btn_beginProgress.Name = "btn_beginProgress";
             this.btn_beginProgress.Size = new System.Drawing.Size(144, 32);
             this.btn_beginProgress.TabIndex = 2;
@@ -100,18 +104,22 @@
             this.txtbox_FilePath.Size = new System.Drawing.Size(772, 21);
             this.txtbox_FilePath.TabIndex = 10;
             this.txtbox_FilePath.Text = "C:\\Users\\Win7x64_20140606\\Desktop\\2014年查体工作总结（修改201408080753）\\2014统计结论\\正局级0357.xl" +
-    "s";
+    "sx";
             // 
             // groupBox2
             // 
+            this.groupBox2.Controls.Add(this.processOutputExcel);
+            this.groupBox2.Controls.Add(this.label8);
+            this.groupBox2.Controls.Add(this.processStatistics);
+            this.groupBox2.Controls.Add(this.label6);
             this.groupBox2.Controls.Add(this.label1);
             this.groupBox2.Controls.Add(this.iffinished);
             this.groupBox2.Controls.Add(this.totalNum);
             this.groupBox2.Controls.Add(this.progressNum);
             this.groupBox2.Controls.Add(this.label2);
-            this.groupBox2.Location = new System.Drawing.Point(371, 249);
+            this.groupBox2.Location = new System.Drawing.Point(369, 172);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(445, 57);
+            this.groupBox2.Size = new System.Drawing.Size(445, 134);
             this.groupBox2.TabIndex = 12;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "文件处理进度";
@@ -213,9 +221,9 @@
             // groupBox4
             // 
             this.groupBox4.Controls.Add(this.chk_CreateNewDiseaseList);
-            this.groupBox4.Location = new System.Drawing.Point(371, 162);
+            this.groupBox4.Location = new System.Drawing.Point(12, 336);
             this.groupBox4.Name = "groupBox4";
-            this.groupBox4.Size = new System.Drawing.Size(442, 66);
+            this.groupBox4.Size = new System.Drawing.Size(294, 66);
             this.groupBox4.TabIndex = 14;
             this.groupBox4.TabStop = false;
             this.groupBox4.Text = "是否要建立新的疾病列表";
@@ -232,11 +240,47 @@
             this.chk_CreateNewDiseaseList.Text = "建立新的疾病列表";
             this.chk_CreateNewDiseaseList.UseVisualStyleBackColor = true;
             // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Location = new System.Drawing.Point(22, 62);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(113, 12);
+            this.label6.TabIndex = 12;
+            this.label6.Text = "统计过程执行情况：";
+            // 
+            // processStatistics
+            // 
+            this.processStatistics.AutoSize = true;
+            this.processStatistics.Location = new System.Drawing.Point(156, 62);
+            this.processStatistics.Name = "processStatistics";
+            this.processStatistics.Size = new System.Drawing.Size(41, 12);
+            this.processStatistics.TabIndex = 13;
+            this.processStatistics.Text = "未开始";
+            // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.Location = new System.Drawing.Point(22, 91);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(119, 12);
+            this.label8.TabIndex = 14;
+            this.label8.Text = "输出Excel执行过程：";
+            // 
+            // processOutputExcel
+            // 
+            this.processOutputExcel.AutoSize = true;
+            this.processOutputExcel.Location = new System.Drawing.Point(156, 91);
+            this.processOutputExcel.Name = "processOutputExcel";
+            this.processOutputExcel.Size = new System.Drawing.Size(41, 12);
+            this.processOutputExcel.TabIndex = 15;
+            this.processOutputExcel.Text = "未开始";
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(840, 384);
+            this.ClientSize = new System.Drawing.Size(887, 434);
             this.Controls.Add(this.groupBox4);
             this.Controls.Add(this.groupBox3);
             this.Controls.Add(this.groupBox2);
@@ -276,6 +320,10 @@
         private System.Windows.Forms.DateTimePicker datePicker_startDate;
         private System.Windows.Forms.GroupBox groupBox4;
         private System.Windows.Forms.CheckBox chk_CreateNewDiseaseList;
+        private System.Windows.Forms.Label processOutputExcel;
+        private System.Windows.Forms.Label label8;
+        private System.Windows.Forms.Label processStatistics;
+        private System.Windows.Forms.Label label6;
     }
 }
 
