@@ -55,363 +55,49 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Data\ConnectionString.cs" />
-    <Compile Include="Data\dtproperties.cs">
-      <DependentUpon>PatientData.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Data\hactdepdiag.cs">
-      <DependentUpon>PatientData.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Data\hactdiag.cs">
-      <DependentUpon>PatientData.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Data\hactmemb.cs">
-      <DependentUpon>PatientData.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Data\hactrep.cs">
-      <DependentUpon>PatientData.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Data\hacttest.cs">
-      <DependentUpon>PatientData.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Data\haudit.cs">
-      <DependentUpon>PatientData.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Data\hbasegrp.cs">
-      <DependentUpon>PatientData.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Data\hbasegrpdept.cs">
-      <DependentUpon>PatientData.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Data\hbasegrpedit.cs">
-      <DependentUpon>PatientData.tt</DependentUpon>
-    </Compile>
     <Compile Include="Data\hbasememb.cs">
-      <DependentUpon>PatientData.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Data\hbasemembcommon.cs">
-      <DependentUpon>PatientData.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Data\hbasemembdiag.cs">
-      <DependentUpon>PatientData.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Data\hbasemembedit.cs">
-      <DependentUpon>PatientData.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Data\hbasemembrep.cs">
-      <DependentUpon>PatientData.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Data\hbasemembunion.cs">
-      <DependentUpon>PatientData.tt</DependentUpon>
+      <DependentUpon>PatientDataBase.tt</DependentUpon>
     </Compile>
     <Compile Include="Data\hcheckmemb.cs">
-      <DependentUpon>PatientData.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Data\hdatadep.cs">
-      <DependentUpon>PatientData.tt</DependentUpon>
+      <DependentUpon>PatientDataBase.tt</DependentUpon>
     </Compile>
     <Compile Include="Data\hdatadepdiag.cs">
-      <DependentUpon>PatientData.tt</DependentUpon>
+      <DependentUpon>PatientDataBase.tt</DependentUpon>
     </Compile>
     <Compile Include="Data\hdatadeptest.cs">
-      <DependentUpon>PatientData.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Data\hdatadepunion.cs">
-      <DependentUpon>PatientData.tt</DependentUpon>
+      <DependentUpon>PatientDataBase.tt</DependentUpon>
     </Compile>
     <Compile Include="Data\hdatadiag.cs">
-      <DependentUpon>PatientData.tt</DependentUpon>
+      <DependentUpon>PatientDataBase.tt</DependentUpon>
     </Compile>
-    <Compile Include="Data\hdataimg.cs">
-      <DependentUpon>PatientData.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Data\hdatarep.cs">
-      <DependentUpon>PatientData.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Data\hError.cs">
-      <DependentUpon>PatientData.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Data\hknowdiag.cs">
-      <DependentUpon>PatientData.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Data\hknowtest.cs">
-      <DependentUpon>PatientData.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Data\hknowunion.cs">
-      <DependentUpon>PatientData.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Data\hlibasm.cs">
-      <DependentUpon>PatientData.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Data\hlibdept.cs">
-      <DependentUpon>PatientData.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Data\hlibdiag.cs">
-      <DependentUpon>PatientData.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Data\hlibpis.cs">
-      <DependentUpon>PatientData.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Data\hlibpisform.cs">
-      <DependentUpon>PatientData.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Data\hlibrepform.cs">
-      <DependentUpon>PatientData.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Data\hlibtest.cs">
-      <DependentUpon>PatientData.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Data\hlibtestattr.cs">
-      <DependentUpon>PatientData.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Data\hlibtestdict.cs">
-      <DependentUpon>PatientData.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Data\hlibtestops.cs">
-      <DependentUpon>PatientData.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Data\hlibuniondiag.cs">
-      <DependentUpon>PatientData.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Data\hlibuniontest.cs">
-      <DependentUpon>PatientData.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Data\hlogdata.cs">
-      <DependentUpon>PatientData.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Data\hstatcharts.cs">
-      <DependentUpon>PatientData.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Data\hstatconds.cs">
-      <DependentUpon>PatientData.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Data\hstatdatasets.cs">
-      <DependentUpon>PatientData.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Data\hstatdata_conds.cs">
-      <DependentUpon>PatientData.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Data\hstatdata_history_defines.cs">
-      <DependentUpon>PatientData.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Data\hstatdata_methods.cs">
-      <DependentUpon>PatientData.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Data\hstatdata_views.cs">
-      <DependentUpon>PatientData.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Data\hstatdiags.cs">
-      <DependentUpon>PatientData.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Data\hstatmainrec.cs">
-      <DependentUpon>PatientData.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Data\hstatmethods.cs">
-      <DependentUpon>PatientData.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Data\hstatreports.cs">
-      <DependentUpon>PatientData.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Data\hstatviews.cs">
-      <DependentUpon>PatientData.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Data\hstat_result_data.cs">
-      <DependentUpon>PatientData.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Data\hstat_result_data_namelist.cs">
-      <DependentUpon>PatientData.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Data\hstat_sessions.cs">
-      <DependentUpon>PatientData.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Data\htask.cs">
-      <DependentUpon>PatientData.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Data\htaskacc.cs">
-      <DependentUpon>PatientData.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Data\htaskaccDetail.cs">
-      <DependentUpon>PatientData.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Data\htaskasm.cs">
-      <DependentUpon>PatientData.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Data\htaskasmtest.cs">
-      <DependentUpon>PatientData.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Data\htaskasmunion.cs">
-      <DependentUpon>PatientData.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Data\htaskdep.cs">
-      <DependentUpon>PatientData.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Data\htaskdepdiag.cs">
-      <DependentUpon>PatientData.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Data\htaskDepImage.cs">
-      <DependentUpon>PatientData.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Data\htaskDeptest.cs">
-      <DependentUpon>PatientData.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Data\htaskdepunion.cs">
-      <DependentUpon>PatientData.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Data\htaskdiag.cs">
-      <DependentUpon>PatientData.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Data\htaskdiagpost.cs">
-      <DependentUpon>PatientData.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Data\htaskgrp.cs">
-      <DependentUpon>PatientData.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Data\htaskimg.cs">
-      <DependentUpon>PatientData.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Data\htaskmemb.cs">
-      <DependentUpon>PatientData.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Data\htaskrep.cs">
-      <DependentUpon>PatientData.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Data\htreedict.cs">
-      <DependentUpon>PatientData.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Data\htreetest.cs">
-      <DependentUpon>PatientData.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Data\hvirtualdiags.cs">
-      <DependentUpon>PatientData.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Data\libicd10.cs">
-      <DependentUpon>PatientData.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Data\libicd10zj.cs">
-      <DependentUpon>PatientData.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Data\libsnomed.cs">
-      <DependentUpon>PatientData.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Data\libsnomedother.cs">
-      <DependentUpon>PatientData.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Data\PatientData.Context.cs">
+    <Compile Include="Data\PatientDataBase.Context.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>PatientData.Context.tt</DependentUpon>
+      <DependentUpon>PatientDataBase.Context.tt</DependentUpon>
     </Compile>
-    <Compile Include="Data\PatientData.cs">
+    <Compile Include="Data\PatientDataBase.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>PatientData.tt</DependentUpon>
+      <DependentUpon>PatientDataBase.tt</DependentUpon>
     </Compile>
-    <Compile Include="Data\PatientData.Designer.cs">
+    <Compile Include="Data\PatientDataBase.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>PatientData.edmx</DependentUpon>
+      <DependentUpon>PatientDataBase.edmx</DependentUpon>
     </Compile>
-    <Compile Include="Data\pbcatcol.cs">
-      <DependentUpon>PatientData.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Data\pbcatedt.cs">
-      <DependentUpon>PatientData.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Data\pbcatfmt.cs">
-      <DependentUpon>PatientData.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Data\pbcattbl.cs">
-      <DependentUpon>PatientData.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Data\pbcatvld.cs">
-      <DependentUpon>PatientData.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Data\pisform.cs">
-      <DependentUpon>PatientData.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Data\tj2.cs">
-      <DependentUpon>PatientData.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Data\tj2_backup.cs">
-      <DependentUpon>PatientData.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Data\tj2_backup2.cs">
-      <DependentUpon>PatientData.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Data\tj2_backup3.cs">
-      <DependentUpon>PatientData.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Data\tj2_deleted.cs">
-      <DependentUpon>PatientData.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Data\x1.cs">
-      <DependentUpon>PatientData.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Data\x11.cs">
-      <DependentUpon>PatientData.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Data\x2.cs">
-      <DependentUpon>PatientData.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Data\x22.cs">
-      <DependentUpon>PatientData.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Data\ycheckmemb.cs">
-      <DependentUpon>PatientData.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Data\ytask.cs">
-      <DependentUpon>PatientData.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Data\ytaskacc.cs">
-      <DependentUpon>PatientData.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Data\ytaskaccDetail.cs">
-      <DependentUpon>PatientData.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Data\ytaskasm.cs">
-      <DependentUpon>PatientData.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Data\ytaskasmunion.cs">
-      <DependentUpon>PatientData.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Data\ytaskdep.cs">
-      <DependentUpon>PatientData.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Data\ytaskdepdiag.cs">
-      <DependentUpon>PatientData.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Data\ytaskDeptest.cs">
-      <DependentUpon>PatientData.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Data\ytaskdepunion.cs">
-      <DependentUpon>PatientData.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Data\ytaskdiag.cs">
-      <DependentUpon>PatientData.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Data\ytaskgrp.cs">
-      <DependentUpon>PatientData.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Data\ytaskimg.cs">
-      <DependentUpon>PatientData.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Data\ytaskmemb.cs">
-      <DependentUpon>PatientData.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Data\ytaskrep.cs">
-      <DependentUpon>PatientData.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Dictionary.cs" />
-    <Compile Include="DiseaseList.cs" />
+    <Compile Include="Package\Dictionary.cs" />
+    <Compile Include="Service\DiseaseList.cs" />
     <Compile Include="Form1.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Form1.Designer.cs">
       <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
-    <Compile Include="OutputExcelService.cs" />
+    <Compile Include="Service\ServiceOutputExcel.cs" />
+    <Compile Include="Package\StatisticsParameters.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="StatisticsService.cs" />
+    <Compile Include="Service\ServiceStatistics.cs" />
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
     </EmbeddedResource>
@@ -428,22 +114,22 @@
     <None Include="app.config">
       <SubType>Designer</SubType>
     </None>
-    <EntityDeploy Include="Data\PatientData.edmx">
+    <EntityDeploy Include="Data\PatientDataBase.edmx">
       <Generator>EntityModelCodeGenerator</Generator>
-      <LastGenOutput>PatientData.Designer.cs</LastGenOutput>
+      <LastGenOutput>PatientDataBase.Designer.cs</LastGenOutput>
     </EntityDeploy>
-    <None Include="Data\PatientData.Context.tt">
+    <None Include="Data\PatientDataBase.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>PatientData.edmx</DependentUpon>
-      <LastGenOutput>PatientData.Context.cs</LastGenOutput>
+      <DependentUpon>PatientDataBase.edmx</DependentUpon>
+      <LastGenOutput>PatientDataBase.Context.cs</LastGenOutput>
     </None>
-    <None Include="Data\PatientData.edmx.diagram">
-      <DependentUpon>PatientData.edmx</DependentUpon>
+    <None Include="Data\PatientDataBase.edmx.diagram">
+      <DependentUpon>PatientDataBase.edmx</DependentUpon>
     </None>
-    <None Include="Data\PatientData.tt">
+    <None Include="Data\PatientDataBase.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>PatientData.edmx</DependentUpon>
-      <LastGenOutput>PatientData.cs</LastGenOutput>
+      <DependentUpon>PatientDataBase.edmx</DependentUpon>
+      <LastGenOutput>PatientDataBase.cs</LastGenOutput>
     </None>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
@@ -455,6 +141,9 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
+    <None Include="Resource\2014ICD2217.xlsx">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
   </ItemGroup>
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
@@ -473,15 +162,6 @@
       <Guid>{00020813-0000-0000-C000-000000000046}</Guid>
       <VersionMajor>1</VersionMajor>
       <VersionMinor>7</VersionMinor>
-      <Lcid>0</Lcid>
-      <WrapperTool>primary</WrapperTool>
-      <Isolated>False</Isolated>
-      <EmbedInteropTypes>True</EmbedInteropTypes>
-    </COMReference>
-    <COMReference Include="Office">
-      <Guid>{2DF8D04C-5BFA-101B-BDE5-00AA0044DE52}</Guid>
-      <VersionMajor>99</VersionMajor>
-      <VersionMinor>1</VersionMinor>
       <Lcid>0</Lcid>
       <WrapperTool>primary</WrapperTool>
       <Isolated>False</Isolated>
@@ -506,6 +186,7 @@
       <EmbedInteropTypes>True</EmbedInteropTypes>
     </COMReference>
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

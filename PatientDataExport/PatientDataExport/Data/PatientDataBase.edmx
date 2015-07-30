@@ -1,0 +1,777 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="medbase201507Model.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2008" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="hbasememb">
+          <Key>
+            <PropertyRef Name="identkey" />
+          </Key>
+          <Property Name="identkey" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="gb2260" Type="varchar" MaxLength="10" />
+          <Property Name="ifdel" Type="char" MaxLength="1" />
+          <Property Name="iftag" Type="char" MaxLength="1" />
+          <Property Name="membcode" Type="varchar" MaxLength="12" />
+          <Property Name="membtype" Type="char" MaxLength="2" />
+          <Property Name="membclasscode" Type="varchar" MaxLength="10" />
+          <Property Name="a0741" Type="varchar" MaxLength="10" />
+          <Property Name="medicareno" Type="varchar" MaxLength="20" />
+          <Property Name="medipcno" Type="varchar" MaxLength="20" />
+          <Property Name="a0177" Type="varchar" MaxLength="18" />
+          <Property Name="a0101" Type="varchar" MaxLength="20" />
+          <Property Name="a0101x" Type="varchar" MaxLength="20" />
+          <Property Name="pycode" Type="varchar" MaxLength="10" />
+          <Property Name="a0107" Type="varchar" MaxLength="10" />
+          <Property Name="a0111" Type="datetime" />
+          <Property Name="a0121" Type="varchar" MaxLength="10" />
+          <Property Name="a0114" Type="varchar" MaxLength="50" />
+          <Property Name="a0405" Type="varchar" MaxLength="10" />
+          <Property Name="a2205" Type="varchar" MaxLength="10" />
+          <Property Name="a0704" Type="varchar" MaxLength="20" />
+          <Property Name="a0707" Type="datetime" />
+          <Property Name="a0724" Type="varchar" MaxLength="10" />
+          <Property Name="a6405" Type="varchar" MaxLength="10" />
+          <Property Name="a6410" Type="datetime" />
+          <Property Name="a0127" Type="varchar" MaxLength="10" />
+          <Property Name="mobileno" Type="varchar" MaxLength="12" />
+          <Property Name="a8210" Type="varchar" MaxLength="100" />
+          <Property Name="a8215" Type="varchar" MaxLength="10" />
+          <Property Name="a8205" Type="varchar" MaxLength="50" />
+          <Property Name="a8205a" Type="varchar" MaxLength="50" />
+          <Property Name="email" Type="varchar" MaxLength="100" />
+          <Property Name="workunit" Type="varchar" MaxLength="100" />
+          <Property Name="b0110" Type="varchar" MaxLength="20" />
+          <Property Name="initday" Type="datetime" />
+          <Property Name="initoper" Type="varchar" MaxLength="20" />
+          <Property Name="updateday" Type="datetime" />
+          <Property Name="updateoper" Type="varchar" MaxLength="20" />
+          <Property Name="cancelcode" Type="varchar" MaxLength="10" />
+          <Property Name="cancelday" Type="datetime" />
+          <Property Name="checkdate" Type="datetime" />
+          <Property Name="taskcode" Type="varchar" MaxLength="10" />
+          <Property Name="checkcode" Type="varchar" MaxLength="20" />
+          <Property Name="membphoto" Type="image" />
+          <Property Name="diaghome" Type="varchar" MaxLength="500" />
+          <Property Name="diagdrug" Type="varchar" MaxLength="500" />
+          <Property Name="diagout" Type="varchar" MaxLength="500" />
+          <Property Name="diagoper" Type="varchar" MaxLength="500" />
+          <Property Name="diagnow" Type="varchar" MaxLength="500" />
+          <Property Name="remark" Type="varchar" MaxLength="50" />
+          <Property Name="a0721" Type="varchar" MaxLength="30" />
+          <Property Name="a1005" Type="varchar" MaxLength="10" />
+          <Property Name="a0141" Type="datetime" />
+          <Property Name="diagblood" Type="varchar" MaxLength="500" />
+          <Property Name="tag" Type="varchar" MaxLength="10" />
+          <Property Name="hiscode" Type="varchar" MaxLength="10" />
+          <Property Name="accsource" Type="varchar" MaxLength="10" />
+          <Property Name="accpwd" Type="varchar" MaxLength="20" />
+          <Property Name="accquestion" Type="varchar" MaxLength="20" />
+          <Property Name="accanswer" Type="varchar" MaxLength="100" />
+          <Property Name="ifemail" Type="varchar" MaxLength="1" />
+          <Property Name="ifsms" Type="varchar" MaxLength="1" />
+          <Property Name="ifquery" Type="varchar" MaxLength="1" />
+          <Property Name="lastquerydate" Type="datetime" />
+          <Property Name="querycount" Type="int" />
+          <Property Name="duty" Type="varchar" MaxLength="50" />
+          <Property Name="healthcode" Type="varchar" MaxLength="20" />
+          <Property Name="feemode" Type="varchar" MaxLength="10" />
+          <Property Name="tasktype" Type="varchar" MaxLength="10" />
+          <Property Name="ifconfirm" Type="varchar" MaxLength="1" />
+          <Property Name="confirmdate" Type="datetime" />
+          <Property Name="mytag" Type="smallint" />
+          <Property Name="statusflag" Type="int" Nullable="false" />
+          <Property Name="photoindex" Type="varchar" MaxLength="20" />
+        </EntityType>
+        <EntityType Name="hcheckmemb">
+          <Key>
+            <PropertyRef Name="checkcode" />
+          </Key>
+          <Property Name="checkcode" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="ifdel" Type="char" MaxLength="1" />
+          <Property Name="taskcode" Type="varchar" MaxLength="10" />
+          <Property Name="taskseq" Type="varchar" MaxLength="4" />
+          <Property Name="seq" Type="varchar" MaxLength="4" />
+          <Property Name="ifprinted" Type="char" MaxLength="1" />
+          <Property Name="checkstatus" Type="char" MaxLength="1" />
+          <Property Name="iffinished" Type="char" MaxLength="1" />
+          <Property Name="b0110" Type="varchar" MaxLength="20" />
+          <Property Name="b0105" Type="varchar" MaxLength="50" />
+          <Property Name="b0160" Type="varchar" MaxLength="10" />
+          <Property Name="membcode" Type="varchar" MaxLength="12" />
+          <Property Name="membtype" Type="varchar" MaxLength="2" />
+          <Property Name="a0101" Type="varchar" MaxLength="20" />
+          <Property Name="a0107" Type="varchar" MaxLength="10" />
+          <Property Name="age" Type="varchar" MaxLength="10" />
+          <Property Name="a6405" Type="varchar" MaxLength="10" />
+          <Property Name="a0704" Type="varchar" MaxLength="10" />
+          <Property Name="checkdate" Type="datetime" />
+          <Property Name="asmcode" Type="varchar" MaxLength="10" />
+          <Property Name="asmseq" Type="varchar" MaxLength="4" />
+          <Property Name="asmname" Type="varchar" MaxLength="50" />
+          <Property Name="ifasmdep" Type="char" MaxLength="1" />
+          <Property Name="asmdepstr" Type="varchar" MaxLength="512" />
+          <Property Name="checkfee" Type="numeric" Precision="9" Scale="2" />
+          <Property Name="ifplus" Type="varchar" MaxLength="1" />
+          <Property Name="checkfeeplus" Type="numeric" Precision="9" Scale="2" />
+          <Property Name="remark" Type="varchar" MaxLength="50" />
+          <Property Name="tele" Type="varchar" MaxLength="30" />
+          <Property Name="email" Type="varchar" MaxLength="100" />
+          <Property Name="accesscode" Type="varchar" MaxLength="20" />
+          <Property Name="sendwayid" Type="varchar" MaxLength="2" />
+          <Property Name="ifsend" Type="char" MaxLength="1" />
+          <Property Name="feesum" Type="numeric" Precision="9" Scale="2" />
+          <Property Name="ifcard" Type="varchar" MaxLength="10" />
+          <Property Name="workunit" Type="varchar" MaxLength="100" />
+          <Property Name="undofee" Type="numeric" Precision="9" Scale="2" />
+          <Property Name="discountfee" Type="numeric" Precision="9" Scale="2" />
+          <Property Name="pis_01" Type="varchar" MaxLength="255" />
+          <Property Name="bseq" Type="smallint" />
+          <Property Name="ifad" Type="smallint" />
+          <Property Name="adclass" Type="varchar" MaxLength="10" />
+          <Property Name="tasktype" Type="varchar" MaxLength="10" />
+          <Property Name="feemode" Type="varchar" MaxLength="10" />
+          <Property Name="priunionchg" Type="varchar" MaxLength="1024" />
+        </EntityType>
+        <EntityType Name="hdatadepdiag">
+          <Key>
+            <PropertyRef Name="gb2260" />
+            <PropertyRef Name="checkcode" />
+            <PropertyRef Name="deptcode" />
+            <PropertyRef Name="signcode" />
+          </Key>
+          <Property Name="gb2260" Type="varchar" MaxLength="10" Nullable="false" />
+          <Property Name="checkcode" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="identkeyno" Type="int" />
+          <Property Name="deptcode" Type="varchar" MaxLength="4" Nullable="false" />
+          <Property Name="unioncode" Type="varchar" MaxLength="10" />
+          <Property Name="taskcode" Type="varchar" MaxLength="10" />
+          <Property Name="membcode" Type="varchar" MaxLength="12" />
+          <Property Name="ifdel" Type="char" MaxLength="1" />
+          <Property Name="iftag" Type="varchar" MaxLength="1" />
+          <Property Name="ifnewsign" Type="char" MaxLength="1" />
+          <Property Name="ifwhy" Type="char" MaxLength="1" />
+          <Property Name="signtype" Type="char" MaxLength="1" />
+          <Property Name="signcode" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="signclass" Type="varchar" MaxLength="100" />
+          <Property Name="signstatus" Type="varchar" MaxLength="20" />
+          <Property Name="diagdeptcode" Type="varchar" MaxLength="10" />
+          <Property Name="seq" Type="varchar" MaxLength="4" />
+          <Property Name="htestcode" Type="varchar" MaxLength="10" />
+          <Property Name="diagwhere" Type="varchar" MaxLength="255" />
+          <Property Name="diagdegree" Type="varchar" MaxLength="255" />
+          <Property Name="diagclass" Type="varchar" MaxLength="255" />
+          <Property Name="stdcode" Type="varchar" MaxLength="10" />
+          <Property Name="diagcode" Type="varchar" MaxLength="20" />
+          <Property Name="mcode" Type="varchar" MaxLength="20" />
+          <Property Name="diagname" Type="varchar" MaxLength="255" />
+          <Property Name="diagviewform" Type="varchar" MaxLength="20" />
+          <Property Name="checkdate" Type="datetime" />
+          <Property Name="checkdoc" Type="varchar" MaxLength="20" />
+          <Property Name="testinfoch" Type="text" />
+          <Property Name="diaginfoch" Type="text" />
+          <Property Name="remark" Type="varchar" MaxLength="255" />
+          <Property Name="tag" Type="varchar" MaxLength="255" />
+          <Property Name="ifguide" Type="varchar" MaxLength="1" />
+          <Property Name="ifimpt" Type="varchar" MaxLength="1" />
+          <Property Name="ifdoubt" Type="varchar" MaxLength="1" />
+        </EntityType>
+        <EntityType Name="hdatadeptest">
+          <Key>
+            <PropertyRef Name="gb2260" />
+            <PropertyRef Name="checkcode" />
+            <PropertyRef Name="deptcode" />
+            <PropertyRef Name="testcode" />
+            <PropertyRef Name="wayid" />
+          </Key>
+          <Property Name="gb2260" Type="varchar" MaxLength="10" Nullable="false" />
+          <Property Name="checkcode" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="deptcode" Type="varchar" MaxLength="4" Nullable="false" />
+          <Property Name="testcode" Type="varchar" MaxLength="10" Nullable="false" />
+          <Property Name="wayid" Type="varchar" MaxLength="10" Nullable="false" />
+          <Property Name="taskcode" Type="varchar" MaxLength="10" />
+          <Property Name="membcode" Type="varchar" MaxLength="12" />
+          <Property Name="unioncode" Type="varchar" MaxLength="10" />
+          <Property Name="htestcode" Type="varchar" MaxLength="10" />
+          <Property Name="testname" Type="varchar" MaxLength="50" />
+          <Property Name="testresult" Type="varchar" MaxLength="4096" />
+          <Property Name="teststatus" Type="varchar" MaxLength="10" />
+          <Property Name="testsign" Type="varchar" MaxLength="1" />
+          <Property Name="testunit" Type="varchar" MaxLength="20" />
+          <Property Name="testrange" Type="varchar" MaxLength="100" />
+          <Property Name="testlower" Type="varchar" MaxLength="100" />
+          <Property Name="testhigher" Type="varchar" MaxLength="100" />
+          <Property Name="warncode" Type="varchar" MaxLength="100" />
+          <Property Name="remark" Type="varchar" MaxLength="1024" />
+        </EntityType>
+        <EntityType Name="hdatadiag">
+          <Key>
+            <PropertyRef Name="gb2260" />
+            <PropertyRef Name="checkcode" />
+            <PropertyRef Name="signcode" />
+          </Key>
+          <Property Name="gb2260" Type="varchar" MaxLength="10" Nullable="false" />
+          <Property Name="checkcode" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="identkeyno" Type="int" />
+          <Property Name="deptcode" Type="varchar" MaxLength="4" Nullable="false" />
+          <Property Name="unioncode" Type="varchar" MaxLength="10" />
+          <Property Name="taskcode" Type="varchar" MaxLength="10" />
+          <Property Name="membcode" Type="varchar" MaxLength="12" />
+          <Property Name="ifdel" Type="char" MaxLength="1" />
+          <Property Name="iftag" Type="varchar" MaxLength="1" />
+          <Property Name="ifnewsign" Type="char" MaxLength="1" />
+          <Property Name="ifwhy" Type="char" MaxLength="1" />
+          <Property Name="signtype" Type="char" MaxLength="1" />
+          <Property Name="signcode" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="signclass" Type="varchar" MaxLength="100" />
+          <Property Name="signstatus" Type="varchar" MaxLength="20" />
+          <Property Name="diagdeptcode" Type="varchar" MaxLength="10" />
+          <Property Name="seq" Type="varchar" MaxLength="4" />
+          <Property Name="htestcode" Type="varchar" MaxLength="10" />
+          <Property Name="diagwhere" Type="varchar" MaxLength="255" />
+          <Property Name="diagdegree" Type="varchar" MaxLength="255" />
+          <Property Name="diagclass" Type="varchar" MaxLength="255" />
+          <Property Name="stdcode" Type="varchar" MaxLength="10" />
+          <Property Name="diagcode" Type="varchar" MaxLength="20" />
+          <Property Name="mcode" Type="varchar" MaxLength="20" />
+          <Property Name="diagname" Type="varchar" MaxLength="255" />
+          <Property Name="diagviewform" Type="varchar" MaxLength="20" />
+          <Property Name="checkdate" Type="datetime" />
+          <Property Name="checkdoc" Type="varchar" MaxLength="20" />
+          <Property Name="testinfoch" Type="text" />
+          <Property Name="diaginfoch" Type="text" />
+          <Property Name="remark" Type="varchar" MaxLength="255" />
+          <Property Name="tag" Type="varchar" MaxLength="255" />
+          <Property Name="ifguide" Type="varchar" MaxLength="1" />
+          <Property Name="ifimpt" Type="varchar" MaxLength="1" />
+          <Property Name="ifdoubt" Type="varchar" MaxLength="1" />
+        </EntityType>
+        <EntityContainer Name="medbase201507ModelStoreContainer">
+          <EntitySet Name="hbasememb" EntityType="Self.hbasememb" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="hcheckmemb" EntityType="Self.hcheckmemb" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="hdatadepdiag" EntityType="Self.hdatadepdiag" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="hdatadeptest" EntityType="Self.hdatadeptest" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="hdatadiag" EntityType="Self.hdatadiag" Schema="dbo" store:Type="Tables" />
+        </EntityContainer>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="medbase201507Model" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="hbasememb">
+          <Key>
+            <PropertyRef Name="identkey" />
+          </Key>
+          <Property Name="identkey" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="gb2260" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="ifdel" Type="String" MaxLength="1" FixedLength="true" Unicode="false" />
+          <Property Name="iftag" Type="String" MaxLength="1" FixedLength="true" Unicode="false" />
+          <Property Name="membcode" Type="String" MaxLength="12" FixedLength="false" Unicode="false" />
+          <Property Name="membtype" Type="String" MaxLength="2" FixedLength="true" Unicode="false" />
+          <Property Name="membclasscode" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="a0741" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="medicareno" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="medipcno" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="a0177" Type="String" MaxLength="18" FixedLength="false" Unicode="false" />
+          <Property Name="a0101" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="a0101x" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="pycode" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="a0107" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="a0111" Type="DateTime" Precision="3" />
+          <Property Name="a0121" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="a0114" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="a0405" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="a2205" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="a0704" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="a0707" Type="DateTime" Precision="3" />
+          <Property Name="a0724" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="a6405" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="a6410" Type="DateTime" Precision="3" />
+          <Property Name="a0127" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="mobileno" Type="String" MaxLength="12" FixedLength="false" Unicode="false" />
+          <Property Name="a8210" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="a8215" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="a8205" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="a8205a" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="email" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="workunit" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="b0110" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="initday" Type="DateTime" Precision="3" />
+          <Property Name="initoper" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="updateday" Type="DateTime" Precision="3" />
+          <Property Name="updateoper" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="cancelcode" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="cancelday" Type="DateTime" Precision="3" />
+          <Property Name="checkdate" Type="DateTime" Precision="3" />
+          <Property Name="taskcode" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="checkcode" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="membphoto" Type="Binary" MaxLength="Max" FixedLength="false" />
+          <Property Name="diaghome" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Name="diagdrug" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Name="diagout" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Name="diagoper" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Name="diagnow" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Name="remark" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="a0721" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Name="a1005" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="a0141" Type="DateTime" Precision="3" />
+          <Property Name="diagblood" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Name="tag" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="hiscode" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="accsource" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="accpwd" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="accquestion" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="accanswer" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="ifemail" Type="String" MaxLength="1" FixedLength="false" Unicode="false" />
+          <Property Name="ifsms" Type="String" MaxLength="1" FixedLength="false" Unicode="false" />
+          <Property Name="ifquery" Type="String" MaxLength="1" FixedLength="false" Unicode="false" />
+          <Property Name="lastquerydate" Type="DateTime" Precision="3" />
+          <Property Name="querycount" Type="Int32" />
+          <Property Name="duty" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="healthcode" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="feemode" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="tasktype" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="ifconfirm" Type="String" MaxLength="1" FixedLength="false" Unicode="false" />
+          <Property Name="confirmdate" Type="DateTime" Precision="3" />
+          <Property Name="mytag" Type="Int16" />
+          <Property Name="statusflag" Type="Int32" Nullable="false" />
+          <Property Name="photoindex" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="hcheckmemb">
+          <Key>
+            <PropertyRef Name="checkcode" />
+          </Key>
+          <Property Name="checkcode" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="ifdel" Type="String" MaxLength="1" FixedLength="true" Unicode="false" />
+          <Property Name="taskcode" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="taskseq" Type="String" MaxLength="4" FixedLength="false" Unicode="false" />
+          <Property Name="seq" Type="String" MaxLength="4" FixedLength="false" Unicode="false" />
+          <Property Name="ifprinted" Type="String" MaxLength="1" FixedLength="true" Unicode="false" />
+          <Property Name="checkstatus" Type="String" MaxLength="1" FixedLength="true" Unicode="false" />
+          <Property Name="iffinished" Type="String" MaxLength="1" FixedLength="true" Unicode="false" />
+          <Property Name="b0110" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="b0105" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="b0160" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="membcode" Type="String" MaxLength="12" FixedLength="false" Unicode="false" />
+          <Property Name="membtype" Type="String" MaxLength="2" FixedLength="false" Unicode="false" />
+          <Property Name="a0101" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="a0107" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="age" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="a6405" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="a0704" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="checkdate" Type="DateTime" Precision="3" />
+          <Property Name="asmcode" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="asmseq" Type="String" MaxLength="4" FixedLength="false" Unicode="false" />
+          <Property Name="asmname" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="ifasmdep" Type="String" MaxLength="1" FixedLength="true" Unicode="false" />
+          <Property Name="asmdepstr" Type="String" MaxLength="512" FixedLength="false" Unicode="false" />
+          <Property Name="checkfee" Type="Decimal" Precision="9" Scale="2" />
+          <Property Name="ifplus" Type="String" MaxLength="1" FixedLength="false" Unicode="false" />
+          <Property Name="checkfeeplus" Type="Decimal" Precision="9" Scale="2" />
+          <Property Name="remark" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="tele" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Name="email" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="accesscode" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="sendwayid" Type="String" MaxLength="2" FixedLength="false" Unicode="false" />
+          <Property Name="ifsend" Type="String" MaxLength="1" FixedLength="true" Unicode="false" />
+          <Property Name="feesum" Type="Decimal" Precision="9" Scale="2" />
+          <Property Name="ifcard" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="workunit" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="undofee" Type="Decimal" Precision="9" Scale="2" />
+          <Property Name="discountfee" Type="Decimal" Precision="9" Scale="2" />
+          <Property Name="pis_01" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="bseq" Type="Int16" />
+          <Property Name="ifad" Type="Int16" />
+          <Property Name="adclass" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="tasktype" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="feemode" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="priunionchg" Type="String" MaxLength="1024" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="hdatadepdiag">
+          <Key>
+            <PropertyRef Name="gb2260" />
+            <PropertyRef Name="checkcode" />
+            <PropertyRef Name="deptcode" />
+            <PropertyRef Name="signcode" />
+          </Key>
+          <Property Name="gb2260" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="checkcode" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="identkeyno" Type="Int32" />
+          <Property Name="deptcode" Type="String" MaxLength="4" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="unioncode" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="taskcode" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="membcode" Type="String" MaxLength="12" FixedLength="false" Unicode="false" />
+          <Property Name="ifdel" Type="String" MaxLength="1" FixedLength="true" Unicode="false" />
+          <Property Name="iftag" Type="String" MaxLength="1" FixedLength="false" Unicode="false" />
+          <Property Name="ifnewsign" Type="String" MaxLength="1" FixedLength="true" Unicode="false" />
+          <Property Name="ifwhy" Type="String" MaxLength="1" FixedLength="true" Unicode="false" />
+          <Property Name="signtype" Type="String" MaxLength="1" FixedLength="true" Unicode="false" />
+          <Property Name="signcode" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="signclass" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="signstatus" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="diagdeptcode" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="seq" Type="String" MaxLength="4" FixedLength="false" Unicode="false" />
+          <Property Name="htestcode" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="diagwhere" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="diagdegree" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="diagclass" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="stdcode" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="diagcode" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="mcode" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="diagname" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="diagviewform" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="checkdate" Type="DateTime" Precision="3" />
+          <Property Name="checkdoc" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="testinfoch" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="diaginfoch" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="remark" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="tag" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="ifguide" Type="String" MaxLength="1" FixedLength="false" Unicode="false" />
+          <Property Name="ifimpt" Type="String" MaxLength="1" FixedLength="false" Unicode="false" />
+          <Property Name="ifdoubt" Type="String" MaxLength="1" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="hdatadeptest">
+          <Key>
+            <PropertyRef Name="gb2260" />
+            <PropertyRef Name="checkcode" />
+            <PropertyRef Name="deptcode" />
+            <PropertyRef Name="testcode" />
+            <PropertyRef Name="wayid" />
+          </Key>
+          <Property Name="gb2260" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="checkcode" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="deptcode" Type="String" MaxLength="4" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="testcode" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="wayid" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="taskcode" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="membcode" Type="String" MaxLength="12" FixedLength="false" Unicode="false" />
+          <Property Name="unioncode" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="htestcode" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="testname" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="testresult" Type="String" MaxLength="4096" FixedLength="false" Unicode="false" />
+          <Property Name="teststatus" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="testsign" Type="String" MaxLength="1" FixedLength="false" Unicode="false" />
+          <Property Name="testunit" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="testrange" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="testlower" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="testhigher" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="warncode" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="remark" Type="String" MaxLength="1024" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityContainer Name="medbase201507Entities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="hbasememb" EntityType="Self.hbasememb" />
+          <EntitySet Name="hcheckmemb" EntityType="Self.hcheckmemb" />
+          <EntitySet Name="hdatadepdiag" EntityType="Self.hdatadepdiag" />
+          <EntitySet Name="hdatadeptest" EntityType="Self.hdatadeptest" />
+          <EntitySet Name="hdatadiag" EntityType="medbase201507Model.hdatadiag" />
+        </EntityContainer>
+        <EntityType Name="hdatadiag">
+          <Key>
+            <PropertyRef Name="gb2260" />
+            <PropertyRef Name="checkcode" />
+            <PropertyRef Name="signcode" />
+          </Key>
+          <Property Name="gb2260" Type="String" Nullable="false" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="checkcode" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="identkeyno" Type="Int32" />
+          <Property Name="deptcode" Type="String" Nullable="false" MaxLength="4" FixedLength="false" Unicode="false" />
+          <Property Name="unioncode" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="taskcode" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="membcode" Type="String" MaxLength="12" FixedLength="false" Unicode="false" />
+          <Property Name="ifdel" Type="String" MaxLength="1" FixedLength="true" Unicode="false" />
+          <Property Name="iftag" Type="String" MaxLength="1" FixedLength="false" Unicode="false" />
+          <Property Name="ifnewsign" Type="String" MaxLength="1" FixedLength="true" Unicode="false" />
+          <Property Name="ifwhy" Type="String" MaxLength="1" FixedLength="true" Unicode="false" />
+          <Property Name="signtype" Type="String" MaxLength="1" FixedLength="true" Unicode="false" />
+          <Property Name="signcode" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="signclass" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="signstatus" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="diagdeptcode" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="seq" Type="String" MaxLength="4" FixedLength="false" Unicode="false" />
+          <Property Name="htestcode" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="diagwhere" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="diagdegree" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="diagclass" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="stdcode" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="diagcode" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="mcode" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="diagname" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="diagviewform" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="checkdate" Type="DateTime" Precision="3" />
+          <Property Name="checkdoc" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="testinfoch" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="diaginfoch" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="remark" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="tag" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="ifguide" Type="String" MaxLength="1" FixedLength="false" Unicode="false" />
+          <Property Name="ifimpt" Type="String" MaxLength="1" FixedLength="false" Unicode="false" />
+          <Property Name="ifdoubt" Type="String" MaxLength="1" FixedLength="false" Unicode="false" />
+        </EntityType>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="medbase201507ModelStoreContainer" CdmEntityContainer="medbase201507Entities">
+          <EntitySetMapping Name="hbasememb">
+            <EntityTypeMapping TypeName="medbase201507Model.hbasememb">
+              <MappingFragment StoreEntitySet="hbasememb">
+                <ScalarProperty Name="identkey" ColumnName="identkey" />
+                <ScalarProperty Name="gb2260" ColumnName="gb2260" />
+                <ScalarProperty Name="ifdel" ColumnName="ifdel" />
+                <ScalarProperty Name="iftag" ColumnName="iftag" />
+                <ScalarProperty Name="membcode" ColumnName="membcode" />
+                <ScalarProperty Name="membtype" ColumnName="membtype" />
+                <ScalarProperty Name="membclasscode" ColumnName="membclasscode" />
+                <ScalarProperty Name="a0741" ColumnName="a0741" />
+                <ScalarProperty Name="medicareno" ColumnName="medicareno" />
+                <ScalarProperty Name="medipcno" ColumnName="medipcno" />
+                <ScalarProperty Name="a0177" ColumnName="a0177" />
+                <ScalarProperty Name="a0101" ColumnName="a0101" />
+                <ScalarProperty Name="a0101x" ColumnName="a0101x" />
+                <ScalarProperty Name="pycode" ColumnName="pycode" />
+                <ScalarProperty Name="a0107" ColumnName="a0107" />
+                <ScalarProperty Name="a0111" ColumnName="a0111" />
+                <ScalarProperty Name="a0121" ColumnName="a0121" />
+                <ScalarProperty Name="a0114" ColumnName="a0114" />
+                <ScalarProperty Name="a0405" ColumnName="a0405" />
+                <ScalarProperty Name="a2205" ColumnName="a2205" />
+                <ScalarProperty Name="a0704" ColumnName="a0704" />
+                <ScalarProperty Name="a0707" ColumnName="a0707" />
+                <ScalarProperty Name="a0724" ColumnName="a0724" />
+                <ScalarProperty Name="a6405" ColumnName="a6405" />
+                <ScalarProperty Name="a6410" ColumnName="a6410" />
+                <ScalarProperty Name="a0127" ColumnName="a0127" />
+                <ScalarProperty Name="mobileno" ColumnName="mobileno" />
+                <ScalarProperty Name="a8210" ColumnName="a8210" />
+                <ScalarProperty Name="a8215" ColumnName="a8215" />
+                <ScalarProperty Name="a8205" ColumnName="a8205" />
+                <ScalarProperty Name="a8205a" ColumnName="a8205a" />
+                <ScalarProperty Name="email" ColumnName="email" />
+                <ScalarProperty Name="workunit" ColumnName="workunit" />
+                <ScalarProperty Name="b0110" ColumnName="b0110" />
+                <ScalarProperty Name="initday" ColumnName="initday" />
+                <ScalarProperty Name="initoper" ColumnName="initoper" />
+                <ScalarProperty Name="updateday" ColumnName="updateday" />
+                <ScalarProperty Name="updateoper" ColumnName="updateoper" />
+                <ScalarProperty Name="cancelcode" ColumnName="cancelcode" />
+                <ScalarProperty Name="cancelday" ColumnName="cancelday" />
+                <ScalarProperty Name="checkdate" ColumnName="checkdate" />
+                <ScalarProperty Name="taskcode" ColumnName="taskcode" />
+                <ScalarProperty Name="checkcode" ColumnName="checkcode" />
+                <ScalarProperty Name="membphoto" ColumnName="membphoto" />
+                <ScalarProperty Name="diaghome" ColumnName="diaghome" />
+                <ScalarProperty Name="diagdrug" ColumnName="diagdrug" />
+                <ScalarProperty Name="diagout" ColumnName="diagout" />
+                <ScalarProperty Name="diagoper" ColumnName="diagoper" />
+                <ScalarProperty Name="diagnow" ColumnName="diagnow" />
+                <ScalarProperty Name="remark" ColumnName="remark" />
+                <ScalarProperty Name="a0721" ColumnName="a0721" />
+                <ScalarProperty Name="a1005" ColumnName="a1005" />
+                <ScalarProperty Name="a0141" ColumnName="a0141" />
+                <ScalarProperty Name="diagblood" ColumnName="diagblood" />
+                <ScalarProperty Name="tag" ColumnName="tag" />
+                <ScalarProperty Name="hiscode" ColumnName="hiscode" />
+                <ScalarProperty Name="accsource" ColumnName="accsource" />
+                <ScalarProperty Name="accpwd" ColumnName="accpwd" />
+                <ScalarProperty Name="accquestion" ColumnName="accquestion" />
+                <ScalarProperty Name="accanswer" ColumnName="accanswer" />
+                <ScalarProperty Name="ifemail" ColumnName="ifemail" />
+                <ScalarProperty Name="ifsms" ColumnName="ifsms" />
+                <ScalarProperty Name="ifquery" ColumnName="ifquery" />
+                <ScalarProperty Name="lastquerydate" ColumnName="lastquerydate" />
+                <ScalarProperty Name="querycount" ColumnName="querycount" />
+                <ScalarProperty Name="duty" ColumnName="duty" />
+                <ScalarProperty Name="healthcode" ColumnName="healthcode" />
+                <ScalarProperty Name="feemode" ColumnName="feemode" />
+                <ScalarProperty Name="tasktype" ColumnName="tasktype" />
+                <ScalarProperty Name="ifconfirm" ColumnName="ifconfirm" />
+                <ScalarProperty Name="confirmdate" ColumnName="confirmdate" />
+                <ScalarProperty Name="mytag" ColumnName="mytag" />
+                <ScalarProperty Name="statusflag" ColumnName="statusflag" />
+                <ScalarProperty Name="photoindex" ColumnName="photoindex" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="hcheckmemb">
+            <EntityTypeMapping TypeName="medbase201507Model.hcheckmemb">
+              <MappingFragment StoreEntitySet="hcheckmemb">
+                <ScalarProperty Name="checkcode" ColumnName="checkcode" />
+                <ScalarProperty Name="ifdel" ColumnName="ifdel" />
+                <ScalarProperty Name="taskcode" ColumnName="taskcode" />
+                <ScalarProperty Name="taskseq" ColumnName="taskseq" />
+                <ScalarProperty Name="seq" ColumnName="seq" />
+                <ScalarProperty Name="ifprinted" ColumnName="ifprinted" />
+                <ScalarProperty Name="checkstatus" ColumnName="checkstatus" />
+                <ScalarProperty Name="iffinished" ColumnName="iffinished" />
+                <ScalarProperty Name="b0110" ColumnName="b0110" />
+                <ScalarProperty Name="b0105" ColumnName="b0105" />
+                <ScalarProperty Name="b0160" ColumnName="b0160" />
+                <ScalarProperty Name="membcode" ColumnName="membcode" />
+                <ScalarProperty Name="membtype" ColumnName="membtype" />
+                <ScalarProperty Name="a0101" ColumnName="a0101" />
+                <ScalarProperty Name="a0107" ColumnName="a0107" />
+                <ScalarProperty Name="age" ColumnName="age" />
+                <ScalarProperty Name="a6405" ColumnName="a6405" />
+                <ScalarProperty Name="a0704" ColumnName="a0704" />
+                <ScalarProperty Name="checkdate" ColumnName="checkdate" />
+                <ScalarProperty Name="asmcode" ColumnName="asmcode" />
+                <ScalarProperty Name="asmseq" ColumnName="asmseq" />
+                <ScalarProperty Name="asmname" ColumnName="asmname" />
+                <ScalarProperty Name="ifasmdep" ColumnName="ifasmdep" />
+                <ScalarProperty Name="asmdepstr" ColumnName="asmdepstr" />
+                <ScalarProperty Name="checkfee" ColumnName="checkfee" />
+                <ScalarProperty Name="ifplus" ColumnName="ifplus" />
+                <ScalarProperty Name="checkfeeplus" ColumnName="checkfeeplus" />
+                <ScalarProperty Name="remark" ColumnName="remark" />
+                <ScalarProperty Name="tele" ColumnName="tele" />
+                <ScalarProperty Name="email" ColumnName="email" />
+                <ScalarProperty Name="accesscode" ColumnName="accesscode" />
+                <ScalarProperty Name="sendwayid" ColumnName="sendwayid" />
+                <ScalarProperty Name="ifsend" ColumnName="ifsend" />
+                <ScalarProperty Name="feesum" ColumnName="feesum" />
+                <ScalarProperty Name="ifcard" ColumnName="ifcard" />
+                <ScalarProperty Name="workunit" ColumnName="workunit" />
+                <ScalarProperty Name="undofee" ColumnName="undofee" />
+                <ScalarProperty Name="discountfee" ColumnName="discountfee" />
+                <ScalarProperty Name="pis_01" ColumnName="pis_01" />
+                <ScalarProperty Name="bseq" ColumnName="bseq" />
+                <ScalarProperty Name="ifad" ColumnName="ifad" />
+                <ScalarProperty Name="adclass" ColumnName="adclass" />
+                <ScalarProperty Name="tasktype" ColumnName="tasktype" />
+                <ScalarProperty Name="feemode" ColumnName="feemode" />
+                <ScalarProperty Name="priunionchg" ColumnName="priunionchg" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="hdatadepdiag">
+            <EntityTypeMapping TypeName="medbase201507Model.hdatadepdiag">
+              <MappingFragment StoreEntitySet="hdatadepdiag">
+                <ScalarProperty Name="gb2260" ColumnName="gb2260" />
+                <ScalarProperty Name="checkcode" ColumnName="checkcode" />
+                <ScalarProperty Name="identkeyno" ColumnName="identkeyno" />
+                <ScalarProperty Name="deptcode" ColumnName="deptcode" />
+                <ScalarProperty Name="unioncode" ColumnName="unioncode" />
+                <ScalarProperty Name="taskcode" ColumnName="taskcode" />
+                <ScalarProperty Name="membcode" ColumnName="membcode" />
+                <ScalarProperty Name="ifdel" ColumnName="ifdel" />
+                <ScalarProperty Name="iftag" ColumnName="iftag" />
+                <ScalarProperty Name="ifnewsign" ColumnName="ifnewsign" />
+                <ScalarProperty Name="ifwhy" ColumnName="ifwhy" />
+                <ScalarProperty Name="signtype" ColumnName="signtype" />
+                <ScalarProperty Name="signcode" ColumnName="signcode" />
+                <ScalarProperty Name="signclass" ColumnName="signclass" />
+                <ScalarProperty Name="signstatus" ColumnName="signstatus" />
+                <ScalarProperty Name="diagdeptcode" ColumnName="diagdeptcode" />
+                <ScalarProperty Name="seq" ColumnName="seq" />
+                <ScalarProperty Name="htestcode" ColumnName="htestcode" />
+                <ScalarProperty Name="diagwhere" ColumnName="diagwhere" />
+                <ScalarProperty Name="diagdegree" ColumnName="diagdegree" />
+                <ScalarProperty Name="diagclass" ColumnName="diagclass" />
+                <ScalarProperty Name="stdcode" ColumnName="stdcode" />
+                <ScalarProperty Name="diagcode" ColumnName="diagcode" />
+                <ScalarProperty Name="mcode" ColumnName="mcode" />
+                <ScalarProperty Name="diagname" ColumnName="diagname" />
+                <ScalarProperty Name="diagviewform" ColumnName="diagviewform" />
+                <ScalarProperty Name="checkdate" ColumnName="checkdate" />
+                <ScalarProperty Name="checkdoc" ColumnName="checkdoc" />
+                <ScalarProperty Name="testinfoch" ColumnName="testinfoch" />
+                <ScalarProperty Name="diaginfoch" ColumnName="diaginfoch" />
+                <ScalarProperty Name="remark" ColumnName="remark" />
+                <ScalarProperty Name="tag" ColumnName="tag" />
+                <ScalarProperty Name="ifguide" ColumnName="ifguide" />
+                <ScalarProperty Name="ifimpt" ColumnName="ifimpt" />
+                <ScalarProperty Name="ifdoubt" ColumnName="ifdoubt" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="hdatadeptest">
+            <EntityTypeMapping TypeName="medbase201507Model.hdatadeptest">
+              <MappingFragment StoreEntitySet="hdatadeptest">
+                <ScalarProperty Name="gb2260" ColumnName="gb2260" />
+                <ScalarProperty Name="checkcode" ColumnName="checkcode" />
+                <ScalarProperty Name="deptcode" ColumnName="deptcode" />
+                <ScalarProperty Name="testcode" ColumnName="testcode" />
+                <ScalarProperty Name="wayid" ColumnName="wayid" />
+                <ScalarProperty Name="taskcode" ColumnName="taskcode" />
+                <ScalarProperty Name="membcode" ColumnName="membcode" />
+                <ScalarProperty Name="unioncode" ColumnName="unioncode" />
+                <ScalarProperty Name="htestcode" ColumnName="htestcode" />
+                <ScalarProperty Name="testname" ColumnName="testname" />
+                <ScalarProperty Name="testresult" ColumnName="testresult" />
+                <ScalarProperty Name="teststatus" ColumnName="teststatus" />
+                <ScalarProperty Name="testsign" ColumnName="testsign" />
+                <ScalarProperty Name="testunit" ColumnName="testunit" />
+                <ScalarProperty Name="testrange" ColumnName="testrange" />
+                <ScalarProperty Name="testlower" ColumnName="testlower" />
+                <ScalarProperty Name="testhigher" ColumnName="testhigher" />
+                <ScalarProperty Name="warncode" ColumnName="warncode" />
+                <ScalarProperty Name="remark" ColumnName="remark" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="hdatadiag">
+            <EntityTypeMapping TypeName="medbase201507Model.hdatadiag">
+              <MappingFragment StoreEntitySet="hdatadiag">
+                <ScalarProperty Name="ifdoubt" ColumnName="ifdoubt" />
+                <ScalarProperty Name="ifimpt" ColumnName="ifimpt" />
+                <ScalarProperty Name="ifguide" ColumnName="ifguide" />
+                <ScalarProperty Name="tag" ColumnName="tag" />
+                <ScalarProperty Name="remark" ColumnName="remark" />
+                <ScalarProperty Name="diaginfoch" ColumnName="diaginfoch" />
+                <ScalarProperty Name="testinfoch" ColumnName="testinfoch" />
+                <ScalarProperty Name="checkdoc" ColumnName="checkdoc" />
+                <ScalarProperty Name="checkdate" ColumnName="checkdate" />
+                <ScalarProperty Name="diagviewform" ColumnName="diagviewform" />
+                <ScalarProperty Name="diagname" ColumnName="diagname" />
+                <ScalarProperty Name="mcode" ColumnName="mcode" />
+                <ScalarProperty Name="diagcode" ColumnName="diagcode" />
+                <ScalarProperty Name="stdcode" ColumnName="stdcode" />
+                <ScalarProperty Name="diagclass" ColumnName="diagclass" />
+                <ScalarProperty Name="diagdegree" ColumnName="diagdegree" />
+                <ScalarProperty Name="diagwhere" ColumnName="diagwhere" />
+                <ScalarProperty Name="htestcode" ColumnName="htestcode" />
+                <ScalarProperty Name="seq" ColumnName="seq" />
+                <ScalarProperty Name="diagdeptcode" ColumnName="diagdeptcode" />
+                <ScalarProperty Name="signstatus" ColumnName="signstatus" />
+                <ScalarProperty Name="signclass" ColumnName="signclass" />
+                <ScalarProperty Name="signcode" ColumnName="signcode" />
+                <ScalarProperty Name="signtype" ColumnName="signtype" />
+                <ScalarProperty Name="ifwhy" ColumnName="ifwhy" />
+                <ScalarProperty Name="ifnewsign" ColumnName="ifnewsign" />
+                <ScalarProperty Name="iftag" ColumnName="iftag" />
+                <ScalarProperty Name="ifdel" ColumnName="ifdel" />
+                <ScalarProperty Name="membcode" ColumnName="membcode" />
+                <ScalarProperty Name="taskcode" ColumnName="taskcode" />
+                <ScalarProperty Name="unioncode" ColumnName="unioncode" />
+                <ScalarProperty Name="deptcode" ColumnName="deptcode" />
+                <ScalarProperty Name="identkeyno" ColumnName="identkeyno" />
+                <ScalarProperty Name="checkcode" ColumnName="checkcode" />
+                <ScalarProperty Name="gb2260" ColumnName="gb2260" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

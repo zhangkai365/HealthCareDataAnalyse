@@ -50,15 +50,19 @@
             this.label4 = new System.Windows.Forms.Label();
             this.groupBox4 = new System.Windows.Forms.GroupBox();
             this.chk_CreateNewDiseaseList = new System.Windows.Forms.CheckBox();
+            this.groupBox5 = new System.Windows.Forms.GroupBox();
+            this.txt_WorkUnit = new System.Windows.Forms.TextBox();
+            this.label7 = new System.Windows.Forms.Label();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.groupBox3.SuspendLayout();
             this.groupBox4.SuspendLayout();
+            this.groupBox5.SuspendLayout();
             this.SuspendLayout();
             // 
             // btn_beginProgress
             // 
-            this.btn_beginProgress.Location = new System.Drawing.Point(527, 370);
+            this.btn_beginProgress.Location = new System.Drawing.Point(527, 464);
             this.btn_beginProgress.Name = "btn_beginProgress";
             this.btn_beginProgress.Size = new System.Drawing.Size(144, 32);
             this.btn_beginProgress.TabIndex = 2;
@@ -73,16 +77,16 @@
             this.groupBox1.Controls.Add(this.txtbox_FilePath);
             this.groupBox1.Location = new System.Drawing.Point(12, 12);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(802, 134);
+            this.groupBox1.Size = new System.Drawing.Size(890, 76);
             this.groupBox1.TabIndex = 11;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "文件保存路径";
             // 
             // btn_selectSavePath
             // 
-            this.btn_selectSavePath.Location = new System.Drawing.Point(298, 74);
+            this.btn_selectSavePath.Location = new System.Drawing.Point(802, 20);
             this.btn_selectSavePath.Name = "btn_selectSavePath";
-            this.btn_selectSavePath.Size = new System.Drawing.Size(144, 31);
+            this.btn_selectSavePath.Size = new System.Drawing.Size(71, 44);
             this.btn_selectSavePath.TabIndex = 12;
             this.btn_selectSavePath.Text = "选择Excel文件存储路径";
             this.btn_selectSavePath.UseVisualStyleBackColor = true;
@@ -99,12 +103,11 @@
             // 
             // txtbox_FilePath
             // 
-            this.txtbox_FilePath.Location = new System.Drawing.Point(11, 35);
+            this.txtbox_FilePath.Location = new System.Drawing.Point(15, 33);
             this.txtbox_FilePath.Name = "txtbox_FilePath";
             this.txtbox_FilePath.Size = new System.Drawing.Size(772, 21);
             this.txtbox_FilePath.TabIndex = 10;
-            this.txtbox_FilePath.Text = "C:\\Users\\Win7x64_20140606\\Desktop\\2014年查体工作总结（修改201408080753）\\2014统计结论\\正局级0357.xl" +
-    "sx";
+            this.txtbox_FilePath.Text = "C:\\Users\\win7x64_20150617\\Desktop\\20150721PatientAnalyse\\市委宣传部07210006.xlsx";
             // 
             // groupBox2
             // 
@@ -117,7 +120,7 @@
             this.groupBox2.Controls.Add(this.totalNum);
             this.groupBox2.Controls.Add(this.progressNum);
             this.groupBox2.Controls.Add(this.label2);
-            this.groupBox2.Location = new System.Drawing.Point(369, 172);
+            this.groupBox2.Location = new System.Drawing.Point(457, 285);
             this.groupBox2.Name = "groupBox2";
             this.groupBox2.Size = new System.Drawing.Size(445, 134);
             this.groupBox2.TabIndex = 12;
@@ -211,7 +214,7 @@
             this.groupBox3.Controls.Add(this.lab_endDate);
             this.groupBox3.Controls.Add(this.label5);
             this.groupBox3.Controls.Add(this.label4);
-            this.groupBox3.Location = new System.Drawing.Point(12, 172);
+            this.groupBox3.Location = new System.Drawing.Point(579, 20);
             this.groupBox3.Name = "groupBox3";
             this.groupBox3.Size = new System.Drawing.Size(294, 134);
             this.groupBox3.TabIndex = 13;
@@ -224,7 +227,7 @@
             this.datePicker_startDate.Name = "datePicker_startDate";
             this.datePicker_startDate.Size = new System.Drawing.Size(147, 21);
             this.datePicker_startDate.TabIndex = 13;
-            this.datePicker_startDate.Value = new System.DateTime(2014, 1, 1, 0, 0, 0, 0);
+            this.datePicker_startDate.Value = new System.DateTime(2015, 1, 1, 0, 0, 0, 0);
             this.datePicker_startDate.ValueChanged += new System.EventHandler(this.datePicker_startDate_ValueChanged);
             // 
             // lab_endDate
@@ -257,9 +260,9 @@
             // groupBox4
             // 
             this.groupBox4.Controls.Add(this.chk_CreateNewDiseaseList);
-            this.groupBox4.Location = new System.Drawing.Point(12, 336);
+            this.groupBox4.Location = new System.Drawing.Point(13, 285);
             this.groupBox4.Name = "groupBox4";
-            this.groupBox4.Size = new System.Drawing.Size(294, 66);
+            this.groupBox4.Size = new System.Drawing.Size(421, 66);
             this.groupBox4.TabIndex = 14;
             this.groupBox4.TabStop = false;
             this.groupBox4.Text = "是否要建立新的疾病列表";
@@ -276,13 +279,42 @@
             this.chk_CreateNewDiseaseList.Text = "建立新的疾病列表";
             this.chk_CreateNewDiseaseList.UseVisualStyleBackColor = true;
             // 
+            // groupBox5
+            // 
+            this.groupBox5.Controls.Add(this.txt_WorkUnit);
+            this.groupBox5.Controls.Add(this.label7);
+            this.groupBox5.Controls.Add(this.groupBox3);
+            this.groupBox5.Location = new System.Drawing.Point(13, 103);
+            this.groupBox5.Name = "groupBox5";
+            this.groupBox5.Size = new System.Drawing.Size(889, 162);
+            this.groupBox5.TabIndex = 15;
+            this.groupBox5.TabStop = false;
+            this.groupBox5.Text = "统计范围";
+            // 
+            // txt_WorkUnit
+            // 
+            this.txt_WorkUnit.Location = new System.Drawing.Point(96, 20);
+            this.txt_WorkUnit.Name = "txt_WorkUnit";
+            this.txt_WorkUnit.Size = new System.Drawing.Size(177, 21);
+            this.txt_WorkUnit.TabIndex = 1;
+            this.txt_WorkUnit.Text = "天津市委宣传部";
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Location = new System.Drawing.Point(25, 24);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(65, 12);
+            this.label7.TabIndex = 0;
+            this.label7.Text = "查体单位：";
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(887, 434);
+            this.ClientSize = new System.Drawing.Size(914, 608);
+            this.Controls.Add(this.groupBox5);
             this.Controls.Add(this.groupBox4);
-            this.Controls.Add(this.groupBox3);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.btn_beginProgress);
@@ -296,6 +328,8 @@
             this.groupBox3.PerformLayout();
             this.groupBox4.ResumeLayout(false);
             this.groupBox4.PerformLayout();
+            this.groupBox5.ResumeLayout(false);
+            this.groupBox5.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -324,6 +358,9 @@
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.Label processStatistics;
         private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.GroupBox groupBox5;
+        private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.TextBox txt_WorkUnit;
     }
 }
 
