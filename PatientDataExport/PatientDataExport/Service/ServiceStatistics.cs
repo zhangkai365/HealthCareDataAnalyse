@@ -22,7 +22,8 @@ namespace PatientDataExport
                 if (_age >= 30 && _age < 40) return "30-40";
                 if (_age >= 40 && _age < 50) return "40-50";
                 if (_age >= 50 && _age < 60) return "50-60";
-                if (_age >= 60) return ">=60";
+                if (_age >= 60 && _age < 70) return "60-70";
+                if (_age >= 70) return ">=70";
             }
             else
             {
@@ -41,78 +42,6 @@ namespace PatientDataExport
             if (xinjiquexue == true)
             {
                 AddDic(ref myDic, ICDxinjiquexue, patientSex, patientAgeRange);
-            }
-        }
-
-        //统计每个人的一种疾病的多个诊断指标
-        public void MultiDiagnosis(List<string> eachPersonAllDiagnosis, ref Dic myDic, string patientSex, string patientAgeRange)
-        {
-            //高血压
-            //收缩压高 F-31113 舒张压高 R03.002
-            bool gaoxueya = false;
-            string ICDgaoxueya = "ZNK001";
-            //高脂血症  
-            //高总胆固醇血症   R79.911
-            //低密度脂蛋白增高  R79.916
-            //高甘油三酯血症   R79.913
-            bool gaozhixuezheng = false;
-            string ICDgaozhixuezheng = "ZNK002";
-            //白内障
-            //老年性白内障    H25.901
-            //白内障   H26.901
-            bool baineizhang = false;
-            string ICDbaineizhang = "ZWG001";
-            //肝功能异常（实验室检查）
-            //总胆红素增高    R79.901
-            //直接胆红素增高   R79.902
-            //简介胆红素增高   
-            bool gangongnengyichang = false;
-            string ICDgangongnengyichang = "ZSY001";
-            //心律失常
-            //房室传导阻滞 I44.302
-            //房颤    R76.902
-            //完全性右束支传导阻滞    I45.102
-            //不完全性右束支传导阻滞 I45.101
-            //左前分支传导阻滞 I44.401
-            bool xinlvshichang = false;
-            string ICDxinlvshichang = "ZNK006";
-            foreach (string tempeachDiagnosis in eachPersonAllDiagnosis)
-            {
-                //高血压
-                if (tempeachDiagnosis.Contains("R03.002") || tempeachDiagnosis.Contains("F-31113")) gaoxueya = true;
-                //高脂血症
-                if (tempeachDiagnosis.Contains("R79.911") || tempeachDiagnosis.Contains("R79.916") || tempeachDiagnosis.Contains("R79.913")) gaozhixuezheng = true;
-                //白内障
-                if (tempeachDiagnosis.Contains("H25.901") || tempeachDiagnosis.Contains("H26.901")) baineizhang = true;
-                //肝功能异常（实验室检查）
-                if (tempeachDiagnosis.Contains("R79.901") || tempeachDiagnosis.Contains("R79.902")) gangongnengyichang = true;
-                //心律失常
-                if (tempeachDiagnosis.Contains("I44.302") || tempeachDiagnosis.Contains("R76.902") || tempeachDiagnosis.Contains("I45.102") || tempeachDiagnosis.Contains("I45.101") || tempeachDiagnosis.Contains("I44.401") ) xinlvshichang = true;
-            }
-            //高血压
-            if (gaoxueya == true)
-            {
-                AddDic(ref myDic,ICDgaoxueya, patientSex, patientAgeRange);
-            }
-            //高血脂
-            if (gaozhixuezheng == true)
-            {
-                AddDic(ref myDic, ICDgaozhixuezheng, patientSex, patientAgeRange);
-            }
-            //白内障
-            if (baineizhang == true)
-            {
-                AddDic(ref myDic, ICDbaineizhang, patientSex, patientAgeRange);
-            }
-            //肝功能异常（实验室检查）
-            if (gangongnengyichang == true)
-            {
-                AddDic(ref myDic, ICDgangongnengyichang, patientSex, patientAgeRange);
-            }
-            //
-            if (xinlvshichang == true)
-            {
-                AddDic(ref myDic, ICDxinlvshichang, patientSex, patientAgeRange);
             }
         }
 
@@ -343,9 +272,6 @@ namespace PatientDataExport
                                 NotICDAdd(eachDisease.diagname, ref myDic, patientSex, patientAgeRange);
                             }
                         }//循环每个人的所有疾病结束
-
-                        //循环结束此人的所有诊断，再确定其中多项诊断确定一个疾病的诊断
-                        //MultiDiagnosis(tempPersonAllDisese,ref myDic, patientSex, patientAgeRange);
 
                     }//确定此人有诊断else结束
                 }//try 查找此人的所有诊断结束

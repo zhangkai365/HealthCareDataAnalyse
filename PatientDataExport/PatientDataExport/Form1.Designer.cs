@@ -107,7 +107,8 @@
             this.txtbox_FilePath.Name = "txtbox_FilePath";
             this.txtbox_FilePath.Size = new System.Drawing.Size(772, 21);
             this.txtbox_FilePath.TabIndex = 10;
-            this.txtbox_FilePath.Text = "C:\\Users\\win7x64_20150617\\Desktop\\20150721PatientAnalyse\\市委宣传部07210006.xlsx";
+            this.txtbox_FilePath.Text = "C:\\Users\\win7x64_20150617\\Desktop\\20150721PatientAnalyse\\市委宣传部2015-08-01-2256.xls" +
+    "x";
             // 
             // groupBox2
             // 

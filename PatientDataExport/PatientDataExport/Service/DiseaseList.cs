@@ -30,8 +30,8 @@ namespace PatientDataExport
                 {
                     try
                     {
-                        tempICDName = ICDWorksheet.get_Range("A" + i).Text;
-                        tempICDCode = ICDWorksheet.get_Range("B" + i).Text;
+                        tempICDCode = ICDWorksheet.get_Range("A" + i).Text;
+                        tempICDName = ICDWorksheet.get_Range("B" + i).Text;
                         if (!ICDList.Keys.Contains(tempICDCode))
                         {
                             ICDList.Add(tempICDCode,tempICDName);
