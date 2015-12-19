@@ -150,7 +150,7 @@ namespace PatientDataExport
             //实际统计的人数，把年龄为零的人排除在外
             myDic.NumAll = 0;
             //查询数据库
-            medbase201507Entities myMedBaseEntities = new medbase201507Entities();
+            medbase201511Entities1 myMedBaseEntities = new medbase201511Entities1();
             //查询所有的待查询时间段内检查的患者
             //查询条件  a0704 任职级别 01 副市级 02 正局级 03 副局级 04 正高 05 副高 14 院士
             //查询条件  a6405 在职情况
@@ -162,11 +162,16 @@ namespace PatientDataExport
             //离休  s1.a6405 == "02"
             //离休 解决与上面重复问题 (s1.a0704 != "01" && s1.a0704 != "02" && s1.a0704 != "03" && s1.a0704 != "04" && s1.a0704 != "05" && s1.a0704 != "14" && s1.a6405 == "02")
             //var ExportResult = from s1 in myMedBaseEntities.hcheckmemb
-            //                   where s1.checkdate > startDate && s1.checkdate < endDate && (s1.a0704 != "01" && s1.a0704 != "02" && s1.a0704 != "03" && s1.a0704 != "04" && s1.a0704 != "05" && s1.a0704 != "14" && s1.a6405 == "02")
+            //                   where s1.checkdate < mnStatisticsParameters.endDate && s1.checkdate > mnStatisticsParameters.startDate && (s1.a0704 == "04" || s1.a0704 == "05" || s1.a0704 == "14")
             //                   select s1;
-            var ExportResult = from s2 in myMedBaseEntities.hcheckmemb
-                               where s2.b0105 == mnStatisticsParameters.workunit && s2.checkdate < mnStatisticsParameters.endDate && s2.checkdate > mnStatisticsParameters.startDate
+
+            string[] lotsWorkUnit = { "0022", "0023","0024","0025","0026","0027","0028","0029","0030","0031","0032","0033","0034","0035","0036","0037","0038","0039","0040","0041","0042","0043","0044","0045","0046","0047","0048","0049","0050","0051","0052","0053","0054","0055","0056","0057","0098","0099","0100","0234","0248","0317","0326","0347","0720" };
+            string workUnit = mnStatisticsParameters.workunit;
+
+            System.Linq.IQueryable<PatientDataExport.Data.hcheckmemb> ExportResult = from s2 in myMedBaseEntities.hcheckmemb
+                               where s2.b0110 == workUnit  && s2.checkdate < mnStatisticsParameters.endDate && s2.checkdate > mnStatisticsParameters.startDate
                                select s2;
+
             if (ExportResult == null)
             {
                 return "没有查询到相应的患者";

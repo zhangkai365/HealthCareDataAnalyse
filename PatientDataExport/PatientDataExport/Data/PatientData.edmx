@@ -4,7 +4,7 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-    <Schema Namespace="medbase201507Model.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2008" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+      <Schema Namespace="medbase201511Model.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2008" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <EntityType Name="hbasememb">
           <Key>
             <PropertyRef Name="identkey" />
@@ -247,17 +247,18 @@
           <Property Name="ifimpt" Type="varchar" MaxLength="1" />
           <Property Name="ifdoubt" Type="varchar" MaxLength="1" />
         </EntityType>
-        <EntityContainer Name="medbase201507ModelStoreContainer">
+        <EntityContainer Name="medbase201511ModelStoreContainer">
           <EntitySet Name="hbasememb" EntityType="Self.hbasememb" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="hcheckmemb" EntityType="Self.hcheckmemb" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="hdatadepdiag" EntityType="Self.hdatadepdiag" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="hdatadeptest" EntityType="Self.hdatadeptest" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="hdatadiag" EntityType="Self.hdatadiag" Schema="dbo" store:Type="Tables" />
         </EntityContainer>
-      </Schema></edmx:StorageModels>
+      </Schema>
+    </edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
-      <Schema Namespace="medbase201507Model" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+      <Schema Namespace="medbase201511Model" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
         <EntityType Name="hbasememb">
           <Key>
             <PropertyRef Name="identkey" />
@@ -458,23 +459,16 @@
           <Property Name="warncode" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
           <Property Name="remark" Type="String" MaxLength="1024" FixedLength="false" Unicode="false" />
         </EntityType>
-        <EntityContainer Name="medbase201507Entities" annotation:LazyLoadingEnabled="true">
-          <EntitySet Name="hbasememb" EntityType="Self.hbasememb" />
-          <EntitySet Name="hcheckmemb" EntityType="Self.hcheckmemb" />
-          <EntitySet Name="hdatadepdiag" EntityType="Self.hdatadepdiag" />
-          <EntitySet Name="hdatadeptest" EntityType="Self.hdatadeptest" />
-          <EntitySet Name="hdatadiag" EntityType="medbase201507Model.hdatadiag" />
-        </EntityContainer>
         <EntityType Name="hdatadiag">
           <Key>
             <PropertyRef Name="gb2260" />
             <PropertyRef Name="checkcode" />
             <PropertyRef Name="signcode" />
           </Key>
-          <Property Name="gb2260" Type="String" Nullable="false" MaxLength="10" FixedLength="false" Unicode="false" />
-          <Property Name="checkcode" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="gb2260" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="checkcode" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="identkeyno" Type="Int32" />
-          <Property Name="deptcode" Type="String" Nullable="false" MaxLength="4" FixedLength="false" Unicode="false" />
+          <Property Name="deptcode" Type="String" MaxLength="4" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="unioncode" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
           <Property Name="taskcode" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
           <Property Name="membcode" Type="String" MaxLength="12" FixedLength="false" Unicode="false" />
@@ -483,7 +477,7 @@
           <Property Name="ifnewsign" Type="String" MaxLength="1" FixedLength="true" Unicode="false" />
           <Property Name="ifwhy" Type="String" MaxLength="1" FixedLength="true" Unicode="false" />
           <Property Name="signtype" Type="String" MaxLength="1" FixedLength="true" Unicode="false" />
-          <Property Name="signcode" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="signcode" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="signclass" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
           <Property Name="signstatus" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
           <Property Name="diagdeptcode" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
@@ -507,14 +501,21 @@
           <Property Name="ifimpt" Type="String" MaxLength="1" FixedLength="false" Unicode="false" />
           <Property Name="ifdoubt" Type="String" MaxLength="1" FixedLength="false" Unicode="false" />
         </EntityType>
+        <EntityContainer Name="medbase201511Entities1" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="hbasememb" EntityType="Self.hbasememb" />
+          <EntitySet Name="hcheckmemb" EntityType="Self.hcheckmemb" />
+          <EntitySet Name="hdatadepdiag" EntityType="Self.hdatadepdiag" />
+          <EntitySet Name="hdatadeptest" EntityType="Self.hdatadeptest" />
+          <EntitySet Name="hdatadiag" EntityType="Self.hdatadiag" />
+        </EntityContainer>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
     <edmx:Mappings>
       <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
-        <EntityContainerMapping StorageEntityContainer="medbase201507ModelStoreContainer" CdmEntityContainer="medbase201507Entities">
+        <EntityContainerMapping StorageEntityContainer="medbase201511ModelStoreContainer" CdmEntityContainer="medbase201511Entities1">
           <EntitySetMapping Name="hbasememb">
-            <EntityTypeMapping TypeName="medbase201507Model.hbasememb">
+            <EntityTypeMapping TypeName="medbase201511Model.hbasememb">
               <MappingFragment StoreEntitySet="hbasememb">
                 <ScalarProperty Name="identkey" ColumnName="identkey" />
                 <ScalarProperty Name="gb2260" ColumnName="gb2260" />
@@ -594,7 +595,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="hcheckmemb">
-            <EntityTypeMapping TypeName="medbase201507Model.hcheckmemb">
+            <EntityTypeMapping TypeName="medbase201511Model.hcheckmemb">
               <MappingFragment StoreEntitySet="hcheckmemb">
                 <ScalarProperty Name="checkcode" ColumnName="checkcode" />
                 <ScalarProperty Name="ifdel" ColumnName="ifdel" />
@@ -645,7 +646,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="hdatadepdiag">
-            <EntityTypeMapping TypeName="medbase201507Model.hdatadepdiag">
+            <EntityTypeMapping TypeName="medbase201511Model.hdatadepdiag">
               <MappingFragment StoreEntitySet="hdatadepdiag">
                 <ScalarProperty Name="gb2260" ColumnName="gb2260" />
                 <ScalarProperty Name="checkcode" ColumnName="checkcode" />
@@ -686,7 +687,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="hdatadeptest">
-            <EntityTypeMapping TypeName="medbase201507Model.hdatadeptest">
+            <EntityTypeMapping TypeName="medbase201511Model.hdatadeptest">
               <MappingFragment StoreEntitySet="hdatadeptest">
                 <ScalarProperty Name="gb2260" ColumnName="gb2260" />
                 <ScalarProperty Name="checkcode" ColumnName="checkcode" />
@@ -711,43 +712,43 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="hdatadiag">
-            <EntityTypeMapping TypeName="medbase201507Model.hdatadiag">
+            <EntityTypeMapping TypeName="medbase201511Model.hdatadiag">
               <MappingFragment StoreEntitySet="hdatadiag">
-                <ScalarProperty Name="ifdoubt" ColumnName="ifdoubt" />
-                <ScalarProperty Name="ifimpt" ColumnName="ifimpt" />
-                <ScalarProperty Name="ifguide" ColumnName="ifguide" />
-                <ScalarProperty Name="tag" ColumnName="tag" />
-                <ScalarProperty Name="remark" ColumnName="remark" />
-                <ScalarProperty Name="diaginfoch" ColumnName="diaginfoch" />
-                <ScalarProperty Name="testinfoch" ColumnName="testinfoch" />
-                <ScalarProperty Name="checkdoc" ColumnName="checkdoc" />
-                <ScalarProperty Name="checkdate" ColumnName="checkdate" />
-                <ScalarProperty Name="diagviewform" ColumnName="diagviewform" />
-                <ScalarProperty Name="diagname" ColumnName="diagname" />
-                <ScalarProperty Name="mcode" ColumnName="mcode" />
-                <ScalarProperty Name="diagcode" ColumnName="diagcode" />
-                <ScalarProperty Name="stdcode" ColumnName="stdcode" />
-                <ScalarProperty Name="diagclass" ColumnName="diagclass" />
-                <ScalarProperty Name="diagdegree" ColumnName="diagdegree" />
-                <ScalarProperty Name="diagwhere" ColumnName="diagwhere" />
-                <ScalarProperty Name="htestcode" ColumnName="htestcode" />
-                <ScalarProperty Name="seq" ColumnName="seq" />
-                <ScalarProperty Name="diagdeptcode" ColumnName="diagdeptcode" />
-                <ScalarProperty Name="signstatus" ColumnName="signstatus" />
-                <ScalarProperty Name="signclass" ColumnName="signclass" />
-                <ScalarProperty Name="signcode" ColumnName="signcode" />
-                <ScalarProperty Name="signtype" ColumnName="signtype" />
-                <ScalarProperty Name="ifwhy" ColumnName="ifwhy" />
-                <ScalarProperty Name="ifnewsign" ColumnName="ifnewsign" />
-                <ScalarProperty Name="iftag" ColumnName="iftag" />
-                <ScalarProperty Name="ifdel" ColumnName="ifdel" />
-                <ScalarProperty Name="membcode" ColumnName="membcode" />
-                <ScalarProperty Name="taskcode" ColumnName="taskcode" />
-                <ScalarProperty Name="unioncode" ColumnName="unioncode" />
-                <ScalarProperty Name="deptcode" ColumnName="deptcode" />
-                <ScalarProperty Name="identkeyno" ColumnName="identkeyno" />
-                <ScalarProperty Name="checkcode" ColumnName="checkcode" />
                 <ScalarProperty Name="gb2260" ColumnName="gb2260" />
+                <ScalarProperty Name="checkcode" ColumnName="checkcode" />
+                <ScalarProperty Name="identkeyno" ColumnName="identkeyno" />
+                <ScalarProperty Name="deptcode" ColumnName="deptcode" />
+                <ScalarProperty Name="unioncode" ColumnName="unioncode" />
+                <ScalarProperty Name="taskcode" ColumnName="taskcode" />
+                <ScalarProperty Name="membcode" ColumnName="membcode" />
+                <ScalarProperty Name="ifdel" ColumnName="ifdel" />
+                <ScalarProperty Name="iftag" ColumnName="iftag" />
+                <ScalarProperty Name="ifnewsign" ColumnName="ifnewsign" />
+                <ScalarProperty Name="ifwhy" ColumnName="ifwhy" />
+                <ScalarProperty Name="signtype" ColumnName="signtype" />
+                <ScalarProperty Name="signcode" ColumnName="signcode" />
+                <ScalarProperty Name="signclass" ColumnName="signclass" />
+                <ScalarProperty Name="signstatus" ColumnName="signstatus" />
+                <ScalarProperty Name="diagdeptcode" ColumnName="diagdeptcode" />
+                <ScalarProperty Name="seq" ColumnName="seq" />
+                <ScalarProperty Name="htestcode" ColumnName="htestcode" />
+                <ScalarProperty Name="diagwhere" ColumnName="diagwhere" />
+                <ScalarProperty Name="diagdegree" ColumnName="diagdegree" />
+                <ScalarProperty Name="diagclass" ColumnName="diagclass" />
+                <ScalarProperty Name="stdcode" ColumnName="stdcode" />
+                <ScalarProperty Name="diagcode" ColumnName="diagcode" />
+                <ScalarProperty Name="mcode" ColumnName="mcode" />
+                <ScalarProperty Name="diagname" ColumnName="diagname" />
+                <ScalarProperty Name="diagviewform" ColumnName="diagviewform" />
+                <ScalarProperty Name="checkdate" ColumnName="checkdate" />
+                <ScalarProperty Name="checkdoc" ColumnName="checkdoc" />
+                <ScalarProperty Name="testinfoch" ColumnName="testinfoch" />
+                <ScalarProperty Name="diaginfoch" ColumnName="diaginfoch" />
+                <ScalarProperty Name="remark" ColumnName="remark" />
+                <ScalarProperty Name="tag" ColumnName="tag" />
+                <ScalarProperty Name="ifguide" ColumnName="ifguide" />
+                <ScalarProperty Name="ifimpt" ColumnName="ifimpt" />
+                <ScalarProperty Name="ifdoubt" ColumnName="ifdoubt" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

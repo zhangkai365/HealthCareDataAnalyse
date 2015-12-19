@@ -13,10 +13,10 @@ namespace PatientDataExport.Data
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
     
-    public partial class medbase201507Entities : DbContext
+    public partial class medbase201511Entities1 : DbContext
     {
-        public medbase201507Entities()
-            : base("name=medbase201507Entities")
+        public medbase201511Entities1()
+            : base("name=medbase201511Entities1")
         {
         }
     

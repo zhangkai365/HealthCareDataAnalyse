@@ -35,21 +35,14 @@ namespace PatientDataExport
 
         public string OutputExcel(string FilePath, Dic myDic, Dictionary<string, string> List_Disease)
         {
-            //设置ICD存储文件的路径及文件名
-            //string ICDFileNameStore = @"C:\Users\Win7x64_20140606\Desktop\2014年查体工作总结（修改201408080753）\疾病总表\ICD2.xls";
-
             Excel.Application mnExcel = new Excel.Application();
             mnExcel.Visible = false;
+
             //存储统计结果
             Excel.Workbook statisticsBook = mnExcel.Workbooks.Add(System.Reflection.Missing.Value);
             statisticsBook.Sheets.Add(System.Reflection.Missing.Value, System.Reflection.Missing.Value, 1, System.Reflection.Missing.Value);
-            System.Windows.Forms.MessageBox.Show(statisticsBook.Sheets.Count.ToString());
             Excel.Worksheet SheetDieases = statisticsBook.Worksheets[1];
             Excel.Worksheet SheetSexNum = statisticsBook.Worksheets[2];
-
-            //存储主要的疾病的ICD诊断号码的Excel
-            //Excel.Workbook ICDWorkbook = myExcel.Workbooks.Add(true);
-            //Excel.Worksheet ICDWorksheet = ICDWorkbook.Worksheets[1];
 
             //输出统计结果
 
@@ -87,7 +80,7 @@ namespace PatientDataExport
             foreach (string s1 in GroupAge)
             {
                 SheetSexNum.Cells[6 + temp1, 1] = s1;
-                if (myDic.NumSexAge.ContainsKey("男，" + s1)) { SheetSexNum.Cells[6 + temp1, 2] = myDic.NumSexAge["男，"+s1]; }
+                if (myDic.NumSexAge.ContainsKey("男，" + s1)) { SheetSexNum.Cells[6 + temp1, 2] = myDic.NumSexAge["男，" + s1]; }
                 if (myDic.NumSexAge.ContainsKey("女，" + s1)) { SheetSexNum.Cells[6 + temp1, 3] = myDic.NumSexAge["女，" + s1]; }
                 if (myDic.NumAge.ContainsKey(s1)) { SheetSexNum.Cells[6 + temp1, 4] = myDic.NumAge[s1]; }
                 temp1++;
@@ -125,8 +118,6 @@ namespace PatientDataExport
                     {
                         SheetDieases.Cells[7, 2 + countX_Top20all] = "空白";
                         SheetDieases.Cells[7, 3 + countX_Top20all] = "空白";
-                        //ICDWorksheet.Cells[1, 2 + countX_Top20all] = "空白";
-                        //ICDWorksheet.Cells[1, 3 + countX_Top20all] = "空白";
                     }
                     else
                     {
@@ -136,9 +127,6 @@ namespace PatientDataExport
                             SheetDieases.Cells[7 + countY_Top20all, 1 + countX_Top20all] = DiagnosisName(List_Disease, eachICDDiseaseNum.Key.ToString());
                             SheetDieases.Cells[7 + countY_Top20all, 2 + countX_Top20all] = eachICDDiseaseNum.Key.ToString();
                             SheetDieases.Cells[7 + countY_Top20all, 3 + countX_Top20all] = eachICDDiseaseNum.Value.ToString();
-                            //写入所有的诊断列表
-                            //ICDWorksheet.Cells[1 + countY_Top20all, 2 + countX_Top20all] = eachICDDiseaseNum.Key.ToString();
-                            //ICDWorksheet.Cells[1 + countY_Top20all, 3 + countX_Top20all] = eachICDDiseaseNum.Value.ToString();
                             //纵向移动
                             countY_Top20all++;
                         }
@@ -148,8 +136,6 @@ namespace PatientDataExport
                 {
                     SheetDieases.Cells[7, 2] = "异常";
                     SheetDieases.Cells[7, 3] = "异常";
-                    //ICDWorksheet.Cells[1, 2] = "异常";
-                    //ICDWorksheet.Cells[1, 3] = "异常";
                 }
                 //横向移动
                 countX_Top20all = countX_Top20all + 3;
@@ -158,9 +144,9 @@ namespace PatientDataExport
 
             //控制表头横向移动的变量
             int countX_titleSexAgeDisease = 0;
-            foreach (string eachSex in GroupSex)
+            foreach (string eachAge in GroupAge)
             {
-                foreach (string eachAge in GroupAge)
+                foreach (string eachSex in GroupSex)
                 {
                     foreach (string title_Disease in GroupTitle)
                     {
@@ -173,10 +159,10 @@ namespace PatientDataExport
             int countX2_SexAgeDisease = 0;
 
             //循环性别
-            foreach (string eachSex in GroupSex)
+            foreach (string eachAge in GroupAge)
             {
                 //循环年龄
-                foreach (string eachAge in GroupAge)
+                foreach (string eachSex in GroupSex)
                 {
                     //控制疾病移动的纵向移动,每次循环之内的疾病都清零
                     int countY2_SexAgeDisease = 0;

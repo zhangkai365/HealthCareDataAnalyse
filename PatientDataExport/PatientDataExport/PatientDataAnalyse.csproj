@@ -56,34 +56,34 @@
   <ItemGroup>
     <Compile Include="Data\ConnectionString.cs" />
     <Compile Include="Data\hbasememb.cs">
-      <DependentUpon>PatientDataBase.tt</DependentUpon>
+      <DependentUpon>PatientData.tt</DependentUpon>
     </Compile>
     <Compile Include="Data\hcheckmemb.cs">
-      <DependentUpon>PatientDataBase.tt</DependentUpon>
+      <DependentUpon>PatientData.tt</DependentUpon>
     </Compile>
     <Compile Include="Data\hdatadepdiag.cs">
-      <DependentUpon>PatientDataBase.tt</DependentUpon>
+      <DependentUpon>PatientData.tt</DependentUpon>
     </Compile>
     <Compile Include="Data\hdatadeptest.cs">
-      <DependentUpon>PatientDataBase.tt</DependentUpon>
+      <DependentUpon>PatientData.tt</DependentUpon>
     </Compile>
     <Compile Include="Data\hdatadiag.cs">
-      <DependentUpon>PatientDataBase.tt</DependentUpon>
+      <DependentUpon>PatientData.tt</DependentUpon>
     </Compile>
-    <Compile Include="Data\PatientDataBase.Context.cs">
+    <Compile Include="Data\PatientData.Context.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>PatientDataBase.Context.tt</DependentUpon>
+      <DependentUpon>PatientData.Context.tt</DependentUpon>
     </Compile>
-    <Compile Include="Data\PatientDataBase.cs">
+    <Compile Include="Data\PatientData.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>PatientDataBase.tt</DependentUpon>
+      <DependentUpon>PatientData.tt</DependentUpon>
     </Compile>
-    <Compile Include="Data\PatientDataBase.Designer.cs">
+    <Compile Include="Data\PatientData.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>PatientDataBase.edmx</DependentUpon>
+      <DependentUpon>PatientData.edmx</DependentUpon>
     </Compile>
     <Compile Include="Package\Dictionary.cs" />
     <Compile Include="Service\DiseaseList.cs" />
@@ -114,22 +114,22 @@
     <None Include="app.config">
       <SubType>Designer</SubType>
     </None>
-    <EntityDeploy Include="Data\PatientDataBase.edmx">
+    <EntityDeploy Include="Data\PatientData.edmx">
       <Generator>EntityModelCodeGenerator</Generator>
-      <LastGenOutput>PatientDataBase.Designer.cs</LastGenOutput>
+      <LastGenOutput>PatientData.Designer.cs</LastGenOutput>
     </EntityDeploy>
-    <None Include="Data\PatientDataBase.Context.tt">
+    <None Include="Data\PatientData.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>PatientDataBase.edmx</DependentUpon>
-      <LastGenOutput>PatientDataBase.Context.cs</LastGenOutput>
+      <DependentUpon>PatientData.edmx</DependentUpon>
+      <LastGenOutput>PatientData.Context.cs</LastGenOutput>
     </None>
-    <None Include="Data\PatientDataBase.edmx.diagram">
-      <DependentUpon>PatientDataBase.edmx</DependentUpon>
+    <None Include="Data\PatientData.edmx.diagram">
+      <DependentUpon>PatientData.edmx</DependentUpon>
     </None>
-    <None Include="Data\PatientDataBase.tt">
+    <None Include="Data\PatientData.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>PatientDataBase.edmx</DependentUpon>
-      <LastGenOutput>PatientDataBase.cs</LastGenOutput>
+      <DependentUpon>PatientData.edmx</DependentUpon>
+      <LastGenOutput>PatientData.cs</LastGenOutput>
     </None>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
